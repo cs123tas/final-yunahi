@@ -187,6 +187,7 @@ void ShapesScene::settingsChanged() {
     m_shape = std::make_unique<Cloth>(clothParam{settings.dimension,settings.particleMass,
                                                  settings.structuralStiffness,settings.shearStiffness,
                                                  settings.bendStiffness,settings.damping,settings.viscous,
-                                                settings.windVelocity,settings.windAngle});
+                                                settings.windVelocity,settings.windAngle},
+                                      settings.shapeParameter1);
 }
 
