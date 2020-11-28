@@ -106,12 +106,57 @@ public:
     QLabel *shapeParameterLabel1;
     QLabel *shapeParameterLabel2;
     QLabel *shapeParameterLabel3;
+
+    //cloth
+    QLabel *dimensionLabel;
+    QLabel *particleMassLabel;
+    QLabel *structuralStiffnessLabel;
+    QLabel *shearStiffnessLabel;
+    QLabel *bendStiffnessLabel;
+    QLabel *dampingLabel;
+    QLabel *viscousLabel;
+    QLabel *windVelocityLabel;
+    QLabel *windAngleLabel;
+    //cloth ends
+
+
     QSlider *shapeParameterSlider1;
     QSlider *shapeParameterSlider2;
     QSlider *shapeParameterSlider3;
+
+    //cloth
+    QSlider *dimensionSlider;
+    QSlider *particleMassSlider;
+    QSlider *structuralStiffnessSlider;
+    QSlider *shearStiffnessSlider;
+    QSlider *bendStiffnessSlider;
+    QSlider *dampingSlider;
+    QSlider *viscousSlider;
+    QSlider *windVelocitySlider;
+    QSlider *windAngleSlider;
+    //cloth ends
+
     QLineEdit *shapeParameterTextbox1;
     QLineEdit *shapeParameterTextbox2;
     QLineEdit *shapeParameterTextbox3;
+
+    //cloth
+    QLineEdit *dimensionTextBox;
+    QLineEdit *particleMassTextBox;
+    QLineEdit *structuralStiffnessTextBox;
+    QLineEdit *shearStiffnessTextBox;
+    QLineEdit *bendStiffnessTextBox;
+    QLineEdit *dampingTextBox;
+    QLineEdit *viscousTextBox;
+    QLineEdit *windVelocityTextBox;
+    QLineEdit *windAngleTextBox;
+    //cloth ends
+
+    //cloth Button
+    QPushButton *restart;
+    QPushButton *reset;
+    //cloth button ends
+
     QCheckBox *useLightingCheckbox;
     QCheckBox *drawWireframeCheckbox;
     QCheckBox *drawNormalsCheckbox;
@@ -587,6 +632,46 @@ public:
 
         gridLayout_4->addWidget(shapeParameterLabel3, 4, 0, 1, 1);
 
+        //cloth label
+        dimensionLabel = new QLabel(shapeParameters);
+        dimensionLabel->setObjectName(QString::fromUtf8("dimensionLabel"));
+        gridLayout_4->addWidget(dimensionLabel, 6, 0, 1, 1);
+
+        particleMassLabel = new QLabel(shapeParameters);
+        particleMassLabel->setObjectName(QString::fromUtf8("particleMassLabel"));
+        gridLayout_4->addWidget(particleMassLabel, 8, 0, 1, 1);
+
+        structuralStiffnessLabel = new QLabel(shapeParameters);
+        structuralStiffnessLabel->setObjectName(QString::fromUtf8("structuralStiffnessLabel"));
+        gridLayout_4->addWidget(structuralStiffnessLabel, 10, 0, 1, 1);
+
+        shearStiffnessLabel = new QLabel(shapeParameters);
+        shearStiffnessLabel->setObjectName(QString::fromUtf8("shearStiffnessLabel"));
+        gridLayout_4->addWidget(shearStiffnessLabel, 12, 0, 1, 1);
+
+        bendStiffnessLabel = new QLabel(shapeParameters);
+        bendStiffnessLabel->setObjectName(QString::fromUtf8("bendStiffnessLabel"));
+        gridLayout_4->addWidget(bendStiffnessLabel, 14, 0, 1, 1);
+
+        dampingLabel = new QLabel(shapeParameters);
+        dampingLabel->setObjectName(QString::fromUtf8("dampingLabel"));
+        gridLayout_4->addWidget(dampingLabel, 16, 0, 1, 1);
+
+        viscousLabel = new QLabel(shapeParameters);
+        viscousLabel->setObjectName(QString::fromUtf8("viscousLabel"));
+        gridLayout_4->addWidget(viscousLabel, 18, 0, 1, 1);
+
+        windVelocityLabel = new QLabel(shapeParameters);
+        windVelocityLabel->setObjectName(QString::fromUtf8("windVelocityLabel"));
+        gridLayout_4->addWidget(windVelocityLabel, 20, 0, 1, 1);
+
+        windAngleLabel = new QLabel(shapeParameters);
+        windAngleLabel->setObjectName(QString::fromUtf8("windAngleLabel"));
+        gridLayout_4->addWidget(windAngleLabel, 22, 0, 1, 1);
+
+
+        //cloth ends
+
         shapeParameterSlider1 = new QSlider(shapeParameters);
         shapeParameterSlider1->setObjectName(QString::fromUtf8("shapeParameterSlider1"));
         shapeParameterSlider1->setMinimumSize(QSize(100, 0));
@@ -607,6 +692,63 @@ public:
         shapeParameterSlider3->setOrientation(Qt::Horizontal);
 
         gridLayout_4->addWidget(shapeParameterSlider3, 4, 1, 1, 1);
+
+        //cloth slider
+        dimensionSlider = new QSlider(shapeParameters);
+        dimensionSlider->setObjectName(QString::fromUtf8("dimensionSlider"));
+        dimensionSlider->setMinimumSize(QSize(100, 0));
+        dimensionSlider->setOrientation(Qt::Horizontal);
+        gridLayout_4->addWidget(dimensionSlider, 6, 1, 1, 1);
+
+        particleMassSlider = new QSlider(shapeParameters);
+        particleMassSlider->setObjectName(QString::fromUtf8("particleMassSlider"));
+        particleMassSlider->setMinimumSize(QSize(100, 0));
+        particleMassSlider->setOrientation(Qt::Horizontal);
+        gridLayout_4->addWidget(particleMassSlider, 8, 1, 1, 1);
+
+        structuralStiffnessSlider = new QSlider(shapeParameters);
+        structuralStiffnessSlider->setObjectName(QString::fromUtf8("structuralStiffnessSlider"));
+        structuralStiffnessSlider->setMinimumSize(QSize(100, 0));
+        structuralStiffnessSlider->setOrientation(Qt::Horizontal);
+        gridLayout_4->addWidget(structuralStiffnessSlider, 10, 1, 1, 1);
+
+        shearStiffnessSlider = new QSlider(shapeParameters);
+        shearStiffnessSlider->setObjectName(QString::fromUtf8("shearStiffnessSlider"));
+        shearStiffnessSlider->setMinimumSize(QSize(100, 0));
+        shearStiffnessSlider->setOrientation(Qt::Horizontal);
+        gridLayout_4->addWidget(shearStiffnessSlider, 12, 1, 1, 1);
+
+        bendStiffnessSlider = new QSlider(shapeParameters);
+        bendStiffnessSlider->setObjectName(QString::fromUtf8("bendStiffnessSlider"));
+        bendStiffnessSlider->setMinimumSize(QSize(100, 0));
+        bendStiffnessSlider->setOrientation(Qt::Horizontal);
+        gridLayout_4->addWidget(bendStiffnessSlider, 14, 1, 1, 1);
+
+        dampingSlider = new QSlider(shapeParameters);
+        dampingSlider->setObjectName(QString::fromUtf8("dampingSlider"));
+        dampingSlider->setMinimumSize(QSize(100, 0));
+        dampingSlider->setOrientation(Qt::Horizontal);
+        gridLayout_4->addWidget(dampingSlider, 16, 1, 1, 1);
+
+        viscousSlider = new QSlider(shapeParameters);
+        viscousSlider->setObjectName(QString::fromUtf8("viscousSlider"));
+        viscousSlider->setMinimumSize(QSize(100, 0));
+        viscousSlider->setOrientation(Qt::Horizontal);
+        gridLayout_4->addWidget(viscousSlider, 18, 1, 1, 1);
+
+        windVelocitySlider = new QSlider(shapeParameters);
+        windVelocitySlider->setObjectName(QString::fromUtf8("windVelocitySlider"));
+        windVelocitySlider->setMinimumSize(QSize(100, 0));
+        windVelocitySlider->setOrientation(Qt::Horizontal);
+        gridLayout_4->addWidget(windVelocitySlider, 20, 1, 1, 1);
+
+        windAngleSlider = new QSlider(shapeParameters);
+        windAngleSlider->setObjectName(QString::fromUtf8("windAngleSlider"));
+        windAngleSlider->setMinimumSize(QSize(100, 0));
+        windAngleSlider->setOrientation(Qt::Horizontal);
+        gridLayout_4->addWidget(windAngleSlider, 22, 1, 1, 1);
+
+        //cloth ends
 
         shapeParameterTextbox1 = new QLineEdit(shapeParameters);
         shapeParameterTextbox1->setObjectName(QString::fromUtf8("shapeParameterTextbox1"));
@@ -629,8 +771,76 @@ public:
 
         gridLayout_4->addWidget(shapeParameterTextbox3, 4, 2, 1, 1);
 
+        //cloth textbox
+        dimensionTextBox = new QLineEdit(shapeParameters);
+        dimensionTextBox->setObjectName(QString::fromUtf8("dimensionTextBox"));
+        dimensionTextBox->setMinimumSize(QSize(40, 0));
+        dimensionTextBox->setMaximumSize(QSize(40, 16777215));
+        gridLayout_4->addWidget(dimensionTextBox, 6, 2, 1, 1);
+
+        particleMassTextBox = new QLineEdit(shapeParameters);
+        particleMassTextBox->setObjectName(QString::fromUtf8("particleMassTextBox"));
+        particleMassTextBox->setMinimumSize(QSize(40, 0));
+        particleMassTextBox->setMaximumSize(QSize(40, 16777215));
+        gridLayout_4->addWidget(particleMassTextBox, 8, 2, 1, 1);
+
+        structuralStiffnessTextBox = new QLineEdit(shapeParameters);
+        structuralStiffnessTextBox->setObjectName(QString::fromUtf8("structuralStiffnessTextBox"));
+        structuralStiffnessTextBox->setMinimumSize(QSize(40, 0));
+        structuralStiffnessTextBox->setMaximumSize(QSize(40, 16777215));
+        gridLayout_4->addWidget(structuralStiffnessTextBox, 10, 2, 1, 1);
+
+        shearStiffnessTextBox = new QLineEdit(shapeParameters);
+        shearStiffnessTextBox->setObjectName(QString::fromUtf8("shearStiffnessTextBox"));
+        shearStiffnessTextBox->setMinimumSize(QSize(40, 0));
+        shearStiffnessTextBox->setMaximumSize(QSize(40, 16777215));
+        gridLayout_4->addWidget(shearStiffnessTextBox, 12, 2, 1, 1);
+
+        bendStiffnessTextBox = new QLineEdit(shapeParameters);
+        bendStiffnessTextBox->setObjectName(QString::fromUtf8("bendStiffnessTextBox"));
+        bendStiffnessTextBox->setMinimumSize(QSize(40, 0));
+        bendStiffnessTextBox->setMaximumSize(QSize(40, 16777215));
+        gridLayout_4->addWidget(bendStiffnessTextBox, 14, 2, 1, 1);
+
+        dampingTextBox = new QLineEdit(shapeParameters);
+        dampingTextBox->setObjectName(QString::fromUtf8("dampingTextBox"));
+        dampingTextBox->setMinimumSize(QSize(40, 0));
+        dampingTextBox->setMaximumSize(QSize(40, 16777215));
+        gridLayout_4->addWidget(dampingTextBox, 16, 2, 1, 1);
+
+        viscousTextBox = new QLineEdit(shapeParameters);
+        viscousTextBox->setObjectName(QString::fromUtf8("viscousTextBox"));
+        viscousTextBox->setMinimumSize(QSize(40, 0));
+        viscousTextBox->setMaximumSize(QSize(40, 16777215));
+        gridLayout_4->addWidget(viscousTextBox, 18, 2, 1, 1);
+
+        windVelocityTextBox = new QLineEdit(shapeParameters);
+        windVelocityTextBox->setObjectName(QString::fromUtf8("windVelocityTextBox"));
+        windVelocityTextBox->setMinimumSize(QSize(40, 0));
+        windVelocityTextBox->setMaximumSize(QSize(40, 16777215));
+        gridLayout_4->addWidget(windVelocityTextBox, 20, 2, 1, 1);
+
+        windAngleTextBox = new QLineEdit(shapeParameters);
+        windAngleTextBox->setObjectName(QString::fromUtf8("windAngleTextBox"));
+        windAngleTextBox->setMinimumSize(QSize(40, 0));
+        windAngleTextBox->setMaximumSize(QSize(40, 16777215));
+        gridLayout_4->addWidget(windAngleTextBox, 22, 2, 1, 1);
+
+        //cloth ends
 
         verticalLayout_7->addWidget(shapeParameters);
+
+        //cloth button
+
+        restart = new QPushButton(shapesDockContents);
+        restart->setObjectName(QString::fromUtf8("restart"));
+        verticalLayout_7->addWidget(restart);
+
+        reset = new QPushButton(shapesDockContents);
+        reset->setObjectName(QString::fromUtf8("reset"));
+        verticalLayout_7->addWidget(reset);
+
+        //cloth ends
 
         useLightingCheckbox = new QCheckBox(shapesDockContents);
         useLightingCheckbox->setObjectName(QString::fromUtf8("useLightingCheckbox"));
@@ -1428,6 +1638,14 @@ public:
         QObject::connect(actionUseOrbitingCamera, SIGNAL(toggled(bool)), cameraOrbitCheckbox, SLOT(setChecked(bool)));
         QObject::connect(cameraOrbitCheckbox, SIGNAL(toggled(bool)), actionUseOrbitingCamera, SLOT(setChecked(bool)));
 
+
+        //cloth
+        QObject::connect(restart, SIGNAL(clicked()), MainWindow, SLOT(restartCloth()));
+        QObject::connect(reset, SIGNAL(clicked()), MainWindow, SLOT(resetCloth()));
+
+
+
+        //cloth ends
         tabWidget->setCurrentIndex(1);
 
 
@@ -1501,6 +1719,25 @@ public:
         shapeParameterLabel1->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
         shapeParameterLabel2->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
         shapeParameterLabel3->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
+
+        //cloth
+         dimensionLabel ->setText(QCoreApplication::translate("MainWindow","dimension",nullptr));
+         particleMassLabel ->setText(QCoreApplication::translate("MainWindow","particleMass",nullptr));
+         structuralStiffnessLabel ->setText(QCoreApplication::translate("MainWindow","structuralStiffness",nullptr));
+         shearStiffnessLabel ->setText(QCoreApplication::translate("MainWindow","shearStiffness",nullptr));
+         bendStiffnessLabel ->setText(QCoreApplication::translate("MainWindow","bendStiffness",nullptr));
+         dampingLabel ->setText(QCoreApplication::translate("MainWindow","damping",nullptr));
+         viscousLabel ->setText(QCoreApplication::translate("MainWindow","viscous",nullptr));
+         windVelocityLabel ->setText(QCoreApplication::translate("MainWindow","windVelocity",nullptr));
+         windAngleLabel ->setText(QCoreApplication::translate("MainWindow","windAngle",nullptr));
+         restart->setText(QCoreApplication::translate("MainWindow", "restart", nullptr));
+         reset->setText(QCoreApplication::translate("MainWindow", "reset", nullptr));
+
+
+
+
+         //cloth ends
+
         useLightingCheckbox->setText(QCoreApplication::translate("MainWindow", "Use lighting", nullptr));
         drawWireframeCheckbox->setText(QCoreApplication::translate("MainWindow", "Draw wireframe", nullptr));
         drawNormalsCheckbox->setText(QCoreApplication::translate("MainWindow", "Draw normals", nullptr));

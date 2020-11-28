@@ -48,6 +48,19 @@ void Settings::loadSettingsOrDefaults() {
     shapeParameter1 = s.value("shapeParameter1", 15).toInt();
     shapeParameter2 = s.value("shapeParameter2", 15).toInt();
     shapeParameter3 = s.value("shapeParameter3", 15).toDouble();
+
+    //cloth
+    dimension = s.value("dimension",15).toInt();
+    particleMass = s.value("particleMass",1).toDouble();
+    structuralStiffness = s.value("structuralStiffness",25).toInt();
+    shearStiffness = s.value("shearStiffness",25).toInt();
+    bendStiffness = s.value("bendStiffness",25).toInt();
+    damping = s.value("damping",0.5).toDouble();
+    viscous = s.value("viscous",0.5).toDouble();
+    windVelocity = s.value("windVelocity",15).toInt();
+    windAngle = s.value("windAngle",0).toInt();
+    //cloth ends
+
     useLighting = s.value("useLighting", true).toBool();
     drawWireframe = s.value("drawWireframe", true).toBool();
     drawNormals = s.value("drawNormals", false).toBool();
@@ -108,6 +121,19 @@ void Settings::saveSettings() {
     s.setValue("shapeParameter1", shapeParameter1);
     s.setValue("shapeParameter2", shapeParameter2);
     s.setValue("shapeParameter3", shapeParameter3);
+
+    //cloth
+    s.setValue("dimension",dimension);
+    s.setValue("particleMass",particleMass);
+    s.setValue("structuralStiffness",structuralStiffness);
+    s.setValue("shearStiffness",shearStiffness);
+    s.setValue("bendStiffness",bendStiffness);
+    s.setValue("damping",damping);
+    s.setValue("viscous",viscous);
+    s.setValue("windVelocity",windVelocity);
+    s.setValue("windAngle",windAngle);
+    //cloth
+
     s.setValue("useLighting", useLighting);
     s.setValue("drawWireframe", drawWireframe);
     s.setValue("drawNormals", drawNormals);

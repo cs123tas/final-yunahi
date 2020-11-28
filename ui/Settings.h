@@ -102,6 +102,19 @@ struct Settings {
     int shapeParameter1;
     int shapeParameter2;
     float shapeParameter3;
+
+    //cloth
+    int dimension;
+    float particleMass;
+    int structuralStiffness;
+    int shearStiffness;
+    int bendStiffness;
+    float damping;
+    float viscous;
+    int windVelocity;
+    int windAngle;
+    //cloth ends
+
     bool useLighting;           // Enable default lighting
     bool drawWireframe;         // Draw wireframe only
     bool drawNormals;           // Turn normals on and off

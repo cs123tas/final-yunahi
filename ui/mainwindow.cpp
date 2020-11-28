@@ -11,6 +11,7 @@
 #include <math.h>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -197,6 +198,28 @@ void MainWindow::dataBind() {
         ui->shapeParameterSlider2, ui->shapeParameterTextbox2, settings.shapeParameter2, 1.f, 100.f))
     BIND(FloatBinding::bindSliderAndTextbox(
         ui->shapeParameterSlider3, ui->shapeParameterTextbox3, settings.shapeParameter3, 1.f, 100.f))
+
+            //cloth
+            BIND(IntBinding::bindSliderAndTextbox(
+                     ui->dimensionSlider,ui->dimensionTextBox,settings.dimension,2.f,100.f))
+            BIND(FloatBinding::bindSliderAndTextbox(
+                     ui->particleMassSlider,ui->particleMassTextBox,settings.particleMass,0.1f,5.f))
+            BIND(IntBinding::bindSliderAndTextbox(
+                     ui->structuralStiffnessSlider,ui->structuralStiffnessTextBox,settings.structuralStiffness,1.f,50.f))
+            BIND(IntBinding::bindSliderAndTextbox(
+                     ui->shearStiffnessSlider,ui->shearStiffnessTextBox,settings.shearStiffness,1.f,50.f))
+            BIND(IntBinding::bindSliderAndTextbox(
+                     ui->bendStiffnessSlider,ui->bendStiffnessTextBox,settings.bendStiffness,1.f,50.f))
+            BIND(FloatBinding::bindSliderAndTextbox(
+                     ui->dampingSlider,ui->dampingTextBox,settings.damping,0.f,1.f))
+            BIND(FloatBinding::bindSliderAndTextbox(
+                     ui->viscousSlider,ui->viscousTextBox,settings.viscous,0.f,2.f))
+            BIND(IntBinding::bindSliderAndTextbox(
+                     ui->windVelocitySlider,ui->windVelocityTextBox,settings.windVelocity,0.f,50.f))
+            BIND(IntBinding::bindSliderAndTextbox(
+                     ui->windAngleSlider,ui->windAngleTextBox,settings.windAngle,0.f,360.f))
+
+            //cloth ends
     BIND(BoolBinding::bindCheckbox(ui->useLightingCheckbox, settings.useLighting))
     BIND(BoolBinding::bindCheckbox(ui->drawWireframeCheckbox, settings.drawWireframe))
     BIND(BoolBinding::bindCheckbox(ui->drawNormalsCheckbox, settings.drawNormals))
@@ -411,6 +434,18 @@ void MainWindow::renderImage() {
         setAllEnabled(true);
     }
 }
+
+//cloth
+void MainWindow::restartCloth(){
+    std::cout<<"restartMainWindow"<<std::endl;
+}
+
+
+void MainWindow::resetCloth(){
+    std::cout<<"reset MainWindow"<<std::endl;
+}
+
+//cloth end
 
 void MainWindow::setAllEnabled(bool enabled) {
     QList<QWidget *> widgets;

@@ -115,6 +115,12 @@ public slots:
     void updateCameraClip();
     void updateCameraHeightAngle();
     void setCameraAxonometric();
+
+
+    //cloth
+    void restartCloth();
+    void resetCloth();
+    //cloth ends
 };
 
 #endif // MAINWINDOW_H

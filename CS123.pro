@@ -38,6 +38,7 @@ SOURCES += \
     scenegraph/RayScene.cpp \
     shapes/ExampleShape.cpp \
     shapes/Shape.cpp \
+    shapes/cloth.cpp \
     ui/Canvas2D.cpp \
     ui/SupportCanvas2D.cpp \
     ui/SupportCanvas3D.cpp \
@@ -83,6 +84,7 @@ HEADERS += \
     scenegraph/RayScene.h \
     shapes/ExampleShape.h \
     shapes/Shape.h \
+    shapes/cloth.h \
     ui/Canvas2D.h \
     ui/SupportCanvas2D.h \
     ui/SupportCanvas3D.h \

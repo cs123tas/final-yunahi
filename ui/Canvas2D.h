@@ -32,6 +32,7 @@ public:
     QImage* getImage() { return m_image; }
 
 
+
 public slots:
     // UI will call this from the button on the "Ray" dock
     void cancelRender();
