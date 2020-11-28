@@ -85,7 +85,7 @@ glm::vec3 Cloth::springForce(glm::vec3 p, glm::vec3 q, float stiffness, float re
 //    return glm::vec3(stiffness * 1000 * (restLength - glm::distance(p,q)) * glm::normalize(p-q));
     glm::vec3 e = p - q;
     float length = glm::distance(p,q);
-    return glm::vec3((stiffness * (restLength - length) * 1/length) * e);
+    return glm::vec3((stiffness * 1000 * (restLength - length) * 1/length) * e);
     //check if this is correct
 }
 
