@@ -184,19 +184,7 @@ void ShapesScene::setLights(const glm::mat4 viewMatrix) {
 void ShapesScene::settingsChanged() {
     // TODO: [SHAPES] Fill this in, for now default to an example shape
 //    m_shape = std::make_unique<ExampleShape>(settings.shapeParameter1, settings.shapeParameter2);
-    std::cout<<" dimension: "<<settings.dimension<<std::endl;
-    std::cout<<" particleMass: "<<settings.particleMass<<std::endl;
-    std::cout<<" structuralStiffness: "<<settings.structuralStiffness<<std::endl;
-    std::cout<<" shearStiffness: "<<settings.shearStiffness<<std::endl;
-    std::cout<<" bendStiffness: "<<settings.bendStiffness<<std::endl;
-    std::cout<<" damping: "<<settings.damping<<std::endl;
-    std::cout<<" viscous: "<<settings.viscous<<std::endl;
-    std::cout<<" windVelocity: "<<settings.windVelocity<<std::endl;
-    std::cout<<" windAngle: "<<settings.windAngle<<std::endl;
 
-
-
-
-    m_shape = std::make_unique<Cloth>(settings.shapeParameter1, settings.shapeParameter2);
+    m_shape = std::make_unique<Cloth>(settings.dimension);
 }
 

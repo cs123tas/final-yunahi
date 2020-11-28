@@ -82,12 +82,17 @@ class Cloth : public Shape
 {
 public:
     Cloth();
-    Cloth(int param1, int param2);
+    Cloth(int dimension);
     ~Cloth();
+    void setVertex();
+    void setVertexHelper(glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, glm::vec3 normal);
+    void initialPosition();
 
 private:
     int m_param1;
     int m_param2;
+    int m_dimension;
+    std::vector<glm::vec3> m_position;
 };
 
 #endif // CLOTH_H
