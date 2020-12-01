@@ -3,7 +3,7 @@
 #include "CS123ISceneParser.h"
 
 #include "glm/gtx/transform.hpp"
-
+#include<iostream>
 
 Scene::Scene()
 {
@@ -39,5 +39,11 @@ void Scene::addLight(const CS123SceneLightData &sceneLight) {
 }
 
 void Scene::setGlobal(const CS123SceneGlobalData &global) {
+}
+
+void Scene::restartAnimationScene(){
+}
+
+void Scene::resetAnimationScene(){
 }
 

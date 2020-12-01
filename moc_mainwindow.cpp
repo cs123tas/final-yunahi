@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[30];
-    char stringdata0[458];
+    char stringdata0[478];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -60,8 +60,8 @@ QT_MOC_LITERAL(24, 359, 12), // "resetSliders"
 QT_MOC_LITERAL(25, 372, 16), // "updateCameraClip"
 QT_MOC_LITERAL(26, 389, 23), // "updateCameraHeightAngle"
 QT_MOC_LITERAL(27, 413, 20), // "setCameraAxonometric"
-QT_MOC_LITERAL(28, 434, 12), // "restartCloth"
-QT_MOC_LITERAL(29, 447, 10) // "resetCloth"
+QT_MOC_LITERAL(28, 434, 22), // "restartClothMainWindow"
+QT_MOC_LITERAL(29, 457, 20) // "resetClothMainWindow"
 
     },
     "MainWindow\0updateAspectRatio\0\0"
@@ -76,7 +76,7 @@ QT_MOC_LITERAL(29, 447, 10) // "resetCloth"
     "updateCameraRotationU\0resetUpVector\0"
     "resetSliders\0updateCameraClip\0"
     "updateCameraHeightAngle\0setCameraAxonometric\0"
-    "restartCloth\0resetCloth"
+    "restartClothMainWindow\0resetClothMainWindow"
 };
 #undef QT_MOC_LITERAL
 
@@ -188,8 +188,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 23: _t->updateCameraClip(); break;
         case 24: _t->updateCameraHeightAngle(); break;
         case 25: _t->setCameraAxonometric(); break;
-        case 26: _t->restartCloth(); break;
-        case 27: _t->resetCloth(); break;
+        case 26: _t->restartClothMainWindow(); break;
+        case 27: _t->resetClothMainWindow(); break;
         default: ;
         }
     }

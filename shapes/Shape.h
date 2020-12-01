@@ -19,6 +19,13 @@ inline void insertVec3(std::vector<float> &data, glm::vec3 v){
     data.push_back(v.y);
     data.push_back(v.z);
 }
+//TEXTUREERROR
+
+inline void insertVec2(std::vector<float> &data, glm::vec2 v){
+    data.push_back(v.x);
+    data.push_back(v.y);
+
+}
 
 namespace CS123 { namespace GL {
 class VAO;
@@ -30,6 +37,7 @@ public:
     Shape();
     virtual ~Shape();
     void draw();
+    virtual void restartAnimationCloth();
 
 protected:
     /** builds the VAO, pretty much the same as from lab 1 */

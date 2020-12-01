@@ -118,8 +118,8 @@ public slots:
 
 
     //cloth
-    void restartCloth();
-    void resetCloth();
+    void restartClothMainWindow();
+    void resetClothMainWindow();
     //cloth ends
 };
 

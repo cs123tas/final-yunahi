@@ -23,6 +23,10 @@ public:
 
     static void parse(Scene *sceneToFill, CS123ISceneParser *parser);
 
+    virtual void restartAnimationScene();
+    virtual void resetAnimationScene();
+
+
 protected:
 
     // Adds a primitive to the scene.

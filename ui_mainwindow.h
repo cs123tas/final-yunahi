@@ -1640,8 +1640,8 @@ public:
 
 
         //cloth
-        QObject::connect(restart, SIGNAL(clicked()), MainWindow, SLOT(restartCloth()));
-        QObject::connect(reset, SIGNAL(clicked()), MainWindow, SLOT(resetCloth()));
+        QObject::connect(restart, SIGNAL(clicked()), MainWindow, SLOT(restartClothMainWindow()));
+        QObject::connect(reset, SIGNAL(clicked()), MainWindow, SLOT(resetClothMainWindow()));
 
 
 

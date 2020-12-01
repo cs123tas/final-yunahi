@@ -1621,9 +1621,14 @@ ShapesScene.o: scenegraph/ShapesScene.cpp scenegraph/ShapesScene.h \
 		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
 		shapes/ExampleShape.h \
 		shapes/cloth.h \
+		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtGui.framework/Headers/QImage \
+		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		gl/textures/Texture2D.h \
+		gl/textures/Texture.h \
 		gl/shaders/CS123Shader.h \
 		gl/shaders/Shader.h \
-		lib/ResourceLoader.h
+		lib/ResourceLoader.h \
+		gl/textures/TextureParametersBuilder.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ShapesScene.o scenegraph/ShapesScene.cpp
 
 SceneviewScene.o: scenegraph/SceneviewScene.cpp scenegraph/SceneviewScene.h \
@@ -2048,7 +2053,15 @@ cloth.o: shapes/cloth.cpp shapes/cloth.h \
 		glm/integer.hpp \
 		glm/detail/func_integer.hpp \
 		glm/detail/func_integer.inl \
-		glew-1.10.0/include/GL/glew.h
+		glew-1.10.0/include/GL/glew.h \
+		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtGui.framework/Headers/QImage \
+		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		gl/textures/Texture2D.h \
+		gl/textures/Texture.h \
+		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtOpenGL.framework/Headers/qgl.h \
+		gl/textures/TextureParametersBuilder.h \
+		gl/textures/TextureParameters.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cloth.o shapes/cloth.cpp
 
 Canvas2D.o: ui/Canvas2D.cpp ui/Canvas2D.h \
@@ -2253,6 +2266,8 @@ SupportCanvas3D.o: ui/SupportCanvas3D.cpp ui/SupportCanvas3D.h \
 		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtCore.framework/Headers/QCoreApplication \
+		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtCore.framework/Headers/qcoreapplication.h \
 		lib/RGBA.h \
 		camera/CamtransCamera.h \
 		camera/Camera.h \
@@ -2293,10 +2308,6 @@ mainwindow.o: ui/mainwindow.cpp ui/mainwindow.h \
 		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		ui_mainwindow.h \
-		ui/Canvas2D.h \
-		ui/SupportCanvas2D.h \
-		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		ui/Databinding.h \
 		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtCore.framework/Headers/qobject.h \

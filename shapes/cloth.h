@@ -2,6 +2,8 @@
 #define CLOTH_H
 
 #include "Shape.h"
+#include <QImage>
+#include "gl/textures/Texture2D.h"
 
 // hand-written cube points and normals.. if only there were a way to do this procedurally
 #define CLOTH_DATA_POSITIONS {\
@@ -78,6 +80,7 @@
         0.5f,-0.5f, 0.5f, \
         0.f, 0.f, 1.f}
 
+
 struct clothParam{
     int dimension;
     float particleMass;
@@ -112,7 +115,9 @@ public:
 
     //takes values in m_position and copies to m_vertexData with normals
     void setVertex();
-    void setVertexHelper(glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, glm::vec3 normal);
+//    void setVertexHelper(glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, glm::vec3 normal);
+    void setVertexHelper(glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, glm::vec3 normal,
+                                glm::vec2 uv1, glm::vec2 uv2, glm::vec2 uv3);
 
     //given two particles positions p and q connected by a spring with
     //stiffness K and restLength L,returns the spring force on p
@@ -126,9 +131,12 @@ public:
     //utils
     glm::vec3 getIndexAt(int row, int col,std::vector<glm::vec3> vector);
     bool validIndex(int row, int col);
+    CS123::GL::Texture2D loadTexture();
 
     //updates
     void update();
+
+    virtual void restartAnimationCloth() override;
 
 private:
     clothParam m_params;
@@ -140,6 +148,7 @@ private:
     std::vector<glm::vec3> m_nextVelocity;
     float m_time;
     float m_step;
+    std::vector<glm::vec2> m_uv;
 
 
 };

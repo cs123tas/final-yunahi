@@ -12,6 +12,9 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <iostream>
+#include <stdlib.h>
+#include <unistd.h>
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -436,13 +439,39 @@ void MainWindow::renderImage() {
 }
 
 //cloth
-void MainWindow::restartCloth(){
-    std::cout<<"restartMainWindow"<<std::endl;
+void MainWindow::restartClothMainWindow(){
+    //change to while
+    m_canvas3D->settingsChanged();
+
+   while(true){
+        m_canvas3D->restartAnimationSupportCanvas3d();
+        QCoreApplication::processEvents();
+        //in miliseconds
+        usleep(1);
+    }
+    std::cout<<"end"<<std::endl;
+
 }
 
 
-void MainWindow::resetCloth(){
-    std::cout<<"reset MainWindow"<<std::endl;
+void MainWindow::resetClothMainWindow(){
+
+    ui->dimensionTextBox->setText(QString("15"));
+    ui->particleMassTextBox->setText(QString("1"));
+    ui->structuralStiffnessTextBox->setText(QString("25"));
+    ui->shearStiffnessTextBox->setText(QString("25"));
+    ui->bendStiffnessTextBox->setText(QString("25"));
+    ui->dampingTextBox->setText(QString("0.5"));
+    ui->viscousLabel->setText(QString("0.5"));
+    ui->windVelocityTextBox->setText(QString("15"));
+    ui->windAngleTextBox->setText(QString("0"));
+
+
+    m_canvas3D->resetAnimationSupportCanvas3d();
+
+
+
+
 }
 
 //cloth end
