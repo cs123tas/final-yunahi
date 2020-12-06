@@ -4,7 +4,12 @@
 #include "gl/textures/Texture2D.h"
 #include "gl/textures/TextureParametersBuilder.h"
 #include "gl/textures/TextureParameters.h"
-
+#include <QDebug>
+#include <QThread>
+#include <QString>
+#include <QFuture>
+#include <QApplication>
+#include <QtConcurrent/QtConcurrent>
 
 Cloth::Cloth()
 {
@@ -28,11 +33,6 @@ Cloth::Cloth(clothParam params,int time) :
     setRestLength();
 //    loadTexture();
 
-//    setVertex();
-
-    for (int i = 0; i < m_tempTime; i++){
-        update();
-    }
 
     setVertex();
     /** build the VAO so that the shape is ready to be drawn */
@@ -88,6 +88,11 @@ void Cloth::setVertex(){
     }
 }
 
+void Cloth::timeInvariant(){
+    m_wind = windForce();
+    m_gravity = gravityForce();
+}
+
 void Cloth::setVertexHelper(glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, glm::vec3 normal,
                             glm::vec2 uv1, glm::vec2 uv2, glm::vec2 uv3){
 
@@ -116,32 +121,34 @@ void Cloth::setRestLength(){
 glm::vec3 Cloth::springForce(glm::vec3 p, glm::vec3 q, float stiffness, float restLength){
 //    return glm::vec3(stiffness * 1000 * (restLength - glm::distance(p,q)) * glm::normalize(p-q));
     glm::vec3 e = p - q;
-    float length = glm::distance(p,q);
-    return glm::vec3((stiffness * 1000 * (restLength - length) * 1/length) * e);
+    float length = glm::length(e);
+    return glm::vec3(((stiffness)  *100* (restLength - length) * 1.f/length) * e);
+
     //check if this is correct
 }
 
 glm::vec3 Cloth::dampingForce(glm::vec3 velocity){
-    return -m_params.damping * velocity;
+    return -m_params.damping * 0.1f * velocity;
 }
 
 glm::vec3 Cloth::viscousForce(glm::vec3 velocity){
     glm::vec3 u (0,0,1.0);
-    return m_params.viscous * (float(m_params.dimension) * (u - velocity)) * float(m_params.dimension);
+    return m_params.viscous*0.1f * (float(m_params.dimension) * (u - velocity)) * float(m_params.dimension);
 }
 
 glm::vec3 Cloth::gravityForce(){
     float g = -9.8;
-    return glm::vec3 (0,m_params.particleMass * g,0);
+    return glm::vec3 (0,(m_params.particleMass*0.1) * g,0);
+
 }
 
 glm::vec3 Cloth::windForce(){
-    float radian = m_params.windAngle*M_PI*180.f;
+    float radian = m_params.windAngle*M_PI/180.f;
     float unknownVal = 0.12 * 0.5 * 1.2 * pow(m_params.windVelocity,2);
+
     return glm::vec3(unknownVal * sin(radian), 0, unknownVal * cos(radian));
     //what is the unknown val?
 }
-
 glm::vec3 Cloth::netForce(int row, int col){
     glm::vec3 netForce(0,0,0);
     glm::vec3 p = getIndexAt(row,col,m_position);
@@ -190,9 +197,12 @@ glm::vec3 Cloth::netForce(int row, int col){
         netForce += springForce(p,getIndexAt(row, col - 2,m_position),
                                 m_params.bendStiffness,m_restLength.bend);
 
+
     //other forces
     glm::vec3 velocity = getIndexAt(row, col,m_velocity);
-    netForce += dampingForce(velocity) + viscousForce(velocity) + gravityForce()+ windForce();
+    netForce += dampingForce(velocity) + viscousForce(velocity)+ gravityForce() + windForce();
+
+
     return netForce;
 }
 
@@ -212,10 +222,12 @@ bool Cloth::validIndex(int row, int col){
     return true;
 }
 
+
+
 void Cloth::update(){
     for (int row = 0; row < m_params.dimension; row++){
         for (int col = 0; col < m_params.dimension; col++){
-            glm::vec3 acceleration = netForce(row,col)/m_params.particleMass;
+            glm::vec3 acceleration = netForce(row,col)/(m_params.particleMass*0.1f);
             glm::vec3 nextVelocity = getIndexAt(row,col,m_velocity) + acceleration * m_step;
             glm::vec3 nextPosition = getIndexAt(row,col,m_position) + nextVelocity * m_step;
 
@@ -241,7 +253,6 @@ void Cloth::update(){
 }
 
 void Cloth::restartAnimationCloth(){
-//    std::cout<<"cloth restart"<<std::endl;
     update();
     setVertex();
     buildVAO();

@@ -204,15 +204,15 @@ void MainWindow::dataBind() {
 
             //cloth
             BIND(IntBinding::bindSliderAndTextbox(
-                     ui->dimensionSlider,ui->dimensionTextBox,settings.dimension,2.f,100.f))
+                     ui->dimensionSlider,ui->dimensionTextBox,settings.dimension,0.f,100.f))
             BIND(FloatBinding::bindSliderAndTextbox(
-                     ui->particleMassSlider,ui->particleMassTextBox,settings.particleMass,0.1f,5.f))
+                     ui->particleMassSlider,ui->particleMassTextBox,settings.particleMass,3.f,50.f))
             BIND(IntBinding::bindSliderAndTextbox(
-                     ui->structuralStiffnessSlider,ui->structuralStiffnessTextBox,settings.structuralStiffness,1.f,50.f))
+                     ui->structuralStiffnessSlider,ui->structuralStiffnessTextBox,settings.structuralStiffness,0.f,50.f))
             BIND(IntBinding::bindSliderAndTextbox(
-                     ui->shearStiffnessSlider,ui->shearStiffnessTextBox,settings.shearStiffness,1.f,50.f))
+                     ui->shearStiffnessSlider,ui->shearStiffnessTextBox,settings.shearStiffness,0.f,50.f))
             BIND(IntBinding::bindSliderAndTextbox(
-                     ui->bendStiffnessSlider,ui->bendStiffnessTextBox,settings.bendStiffness,1.f,50.f))
+                     ui->bendStiffnessSlider,ui->bendStiffnessTextBox,settings.bendStiffness,0.f,50.f))
             BIND(FloatBinding::bindSliderAndTextbox(
                      ui->dampingSlider,ui->dampingTextBox,settings.damping,0.f,1.f))
             BIND(FloatBinding::bindSliderAndTextbox(

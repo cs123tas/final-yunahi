@@ -132,6 +132,7 @@ public:
     glm::vec3 getIndexAt(int row, int col,std::vector<glm::vec3> vector);
     bool validIndex(int row, int col);
     CS123::GL::Texture2D loadTexture();
+    void timeInvariant();
 
     //updates
     void update();
@@ -149,6 +150,8 @@ private:
     float m_time;
     float m_step;
     std::vector<glm::vec2> m_uv;
+    glm::vec3 m_wind;
+    glm::vec3 m_gravity;
 
 
 };

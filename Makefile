@@ -2308,6 +2308,10 @@ mainwindow.o: ui/mainwindow.cpp ui/mainwindow.h \
 		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		ui_mainwindow.h \
+		ui/Canvas2D.h \
+		ui/SupportCanvas2D.h \
+		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		ui/Databinding.h \
 		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../../Qt5.14.2/5.14.2/clang_64/lib/QtCore.framework/Headers/qobject.h \
