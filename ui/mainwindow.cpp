@@ -548,7 +548,10 @@ void MainWindow::restartMainWindow(){
     settings.superman = true;
 
     //
-    QString file = QString::fromStdString("/Users/yuna.hiraide/Desktop/data/scenes/general/lego.xml");
+    std::string p = pathToData + std::string("data/scenes/general/lego.xml");
+//    QString file = QString::fromStdString("/Users/yuna.hiraide/Desktop/data/scenes/general/lego.xml");
+        QString file = QString::fromStdString(p);
+
     if (!file.isNull()) {
         if (file.endsWith(".xml")) {
             CS123XmlSceneParser parser(file.toLatin1().data());
@@ -588,7 +591,10 @@ void MainWindow::batmanMainWindow(){
     m_paused = true;
     settings.superman = false;
     //
-    QString file = QString::fromStdString("/Users/yuna.hiraide/Desktop/data/scenes/general/batman.xml");
+    std::string p = pathToData + std::string("data/scenes/general/batman.xml");
+    QString file = QString::fromStdString(p);
+
+//    QString file = QString::fromStdString("/Users/yuna.hiraide/Desktop/data/scenes/general/batman.xml");
     if (!file.isNull()) {
         if (file.endsWith(".xml")) {
             CS123XmlSceneParser parser(file.toLatin1().data());
