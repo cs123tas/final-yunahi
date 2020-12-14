@@ -290,7 +290,8 @@ void SceneviewScene::loadTexture(){
 
                 //change filepath here
                 if (true){
-                    std::string replacement = "/Users/yuna.hiraide/Desktop/";
+//                    std::string replacement = "/Users/yuna.hiraide/Desktop/";
+                    std::string replacement = pathToData;
 
 
                     filename.replace(0,14,replacement);
@@ -314,7 +315,8 @@ void SceneviewScene::loadTextures() {
         if (m_primitiveList[i].material.textureMap.isUsed){
             std::string filename = m_primitiveList[i].material.textureMap.filename;
             if (true){
-                std::string replacement = "/Users/yuna.hiraide/Desktop/";
+//                std::string replacement = "/Users/yuna.hiraide/Desktop/";
+                std::string replacement = pathToData;
 
                 // should this be insert instead of replace? should work on dept machine regardless
                 filename.replace(0,14,replacement);
@@ -340,7 +342,8 @@ void SceneviewScene::loadTextures() {
         filename = "/course/cs123/data/image/batmanCape.jpg";
 
     if (true){
-        std::string replacement = "/Users/yuna.hiraide/Desktop/";
+//        std::string replacement = "/Users/yuna.hiraide/Desktop/";
+        std::string replacement = pathToData;
         // should this be insert instead of replace? should work on dept machine regardless
         filename.replace(0,14,replacement);
     }

@@ -5,6 +5,9 @@
  * assignments. The settings are bound to the GUI via static data bindings.
  */
 
+#define pathToData "/Users/yuna.hiraide/Desktop/final-yunahi-master/"
+
+
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
