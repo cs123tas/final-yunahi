@@ -55,9 +55,7 @@ public:
     // This function will be called by the UI when the settings have changed.
     virtual void settingsChanged();
 
-    void restartAnimationSupportCanvas3d();
-    void resetAnimationSupportCanvas3d();
-
+    void updateSupportCanvas3D();
 
 
 public slots:

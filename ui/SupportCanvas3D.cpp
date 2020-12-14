@@ -4,7 +4,6 @@
 #include <QMouseEvent>
 #include <QMessageBox>
 #include <QApplication>
-#include <QCoreApplication>
 
 #include "RGBA.h"
 #include "CamtransCamera.h"
@@ -16,10 +15,6 @@
 #include <iostream>
 #include "gl/GLDebug.h"
 #include "CS123XmlSceneParser.h"
-
-#include <stdlib.h>
-#include <unistd.h>
-
 
 SupportCanvas3D::SupportCanvas3D(QGLFormat format, QWidget *parent) : QGLWidget(format, parent),
     m_isDragging(false),
@@ -286,18 +281,7 @@ void SupportCanvas3D::resizeEvent(QResizeEvent *event) {
     emit aspectRatioChanged();
 }
 
-void SupportCanvas3D::restartAnimationSupportCanvas3d(){
-
-        m_currentScene->restartAnimationScene();
-        update();
-
+void SupportCanvas3D::updateSupportCanvas3D(){
+    m_currentScene->updateScene();
+    update();
 }
-
-void SupportCanvas3D::resetAnimationSupportCanvas3d(){
-
-    m_currentScene->resetAnimationScene();
-
-}
-
-
-

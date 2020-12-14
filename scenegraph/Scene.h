@@ -6,6 +6,12 @@
 class Camera;
 class CS123ISceneParser;
 
+// Scene global color coefficients
+struct nodeInfo  {
+    glm::mat4 transformation;
+    CS123SceneMaterial material;
+    PrimitiveType type;
+};
 
 /**
  * @class Scene
@@ -22,11 +28,7 @@ public:
     virtual void settingsChanged() {}
 
     static void parse(Scene *sceneToFill, CS123ISceneParser *parser);
-
-    virtual void restartAnimationScene();
-    virtual void resetAnimationScene();
-
-
+    virtual void updateScene();
 protected:
 
     // Adds a primitive to the scene.
@@ -38,6 +40,17 @@ protected:
     // Sets the global data for the scene.
     virtual void setGlobal(const CS123SceneGlobalData &global);
 
+    void addPrimitiveHelper(CS123SceneNode *node,glm::mat4 parentMatrix);
+
+    std::vector<nodeInfo> m_primitiveList;
+    std::vector<CS123SceneLightData> m_lightList;
+    CS123SceneGlobalData m_global;
+
+
+
 };
+
+
+
 
 #endif // SCENE_H

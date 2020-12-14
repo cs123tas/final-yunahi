@@ -83,8 +83,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>250</width>
-             <height>3058</height>
+             <width>339</width>
+             <height>3061</height>
             </rect>
            </property>
           </widget>
@@ -458,73 +458,6 @@
        <property name="text">
         <string>Show sceneview instead</string>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QGroupBox" name="shapeType">
-       <property name="title">
-        <string>Shape Type</string>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_8">
-        <property name="topMargin">
-         <number>5</number>
-        </property>
-        <property name="bottomMargin">
-         <number>5</number>
-        </property>
-        <item>
-         <widget class="QRadioButton" name="shapeTypeCube">
-          <property name="text">
-           <string>Cube</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="shapeTypeCone">
-          <property name="text">
-           <string>Cone</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="shapeTypeSphere">
-          <property name="text">
-           <string>Sphere</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="shapeTypeCylinder">
-          <property name="text">
-           <string>Cylinder</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="shapeTypeTorus">
-          <property name="text">
-           <string>Torus</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="shapeTypeSpecial1">
-          <property name="text">
-           <string>Special 1</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="shapeTypeSpecial2">
-          <property name="text">
-           <string>Special 2</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
       </widget>
      </item>
      <item>
@@ -1371,75 +1304,8 @@
         <property name="verticalSpacing">
          <number>5</number>
         </property>
-        <item row="1" column="0">
-         <widget class="QLabel" name="cameraPositionLabelX">
-          <property name="text">
-           <string>X</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="cameraPositionLabelY">
-          <property name="text">
-           <string>Y</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <widget class="QLabel" name="cameraPositionLabelZ">
-          <property name="text">
-           <string>Z</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="0">
          <widget class="QDial" name="transX">
-          <property name="minimumSize">
-           <size>
-            <width>60</width>
-            <height>60</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>60</width>
-            <height>60</height>
-           </size>
-          </property>
-          <property name="minimum">
-           <number>-360</number>
-          </property>
-          <property name="maximum">
-           <number>360</number>
-          </property>
-          <property name="singleStep">
-           <number>10</number>
-          </property>
-          <property name="pageStep">
-           <number>30</number>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="invertedControls">
-           <bool>true</bool>
-          </property>
-          <property name="wrapping">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QDial" name="transY">
           <property name="minimumSize">
            <size>
             <width>60</width>
@@ -1509,6 +1375,73 @@
           </property>
           <property name="wrapping">
            <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="cameraPositionLabelX">
+          <property name="text">
+           <string>X</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QDial" name="transY">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>60</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>60</height>
+           </size>
+          </property>
+          <property name="minimum">
+           <number>-360</number>
+          </property>
+          <property name="maximum">
+           <number>360</number>
+          </property>
+          <property name="singleStep">
+           <number>10</number>
+          </property>
+          <property name="pageStep">
+           <number>30</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="invertedControls">
+           <bool>true</bool>
+          </property>
+          <property name="wrapping">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="cameraPositionLabelY">
+          <property name="text">
+           <string>Y</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLabel" name="cameraPositionLabelZ">
+          <property name="text">
+           <string>Z</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -1920,7 +1853,7 @@
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -2200,38 +2133,6 @@
     <hint type="destinationlabel">
      <x>299</x>
      <y>906</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>cameraOrbitCheckbox</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>cameraRotation</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>119</x>
-     <y>2353</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>116</x>
-     <y>2632</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>cameraOrbitCheckbox</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>cameraPosition</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>119</x>
-     <y>2353</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>116</x>
-     <y>2466</y>
     </hint>
    </hints>
   </connection>
@@ -2620,38 +2521,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>cameraOrbitCheckbox</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>cameraResetAxis</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>130</x>
-     <y>2353</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>126</x>
-     <y>2735</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>showSceneviewInstead</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>shapeType</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>130</x>
-     <y>560</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>126</x>
-     <y>739</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>rayStopRenderingButton</sender>
    <signal>clicked()</signal>
    <receiver>canvas2D</receiver>
@@ -2792,6 +2661,54 @@
     <hint type="destinationlabel">
      <x>299</x>
      <y>1555</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cameraOrbitCheckbox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>cameraPosition</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>2353</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>116</x>
+     <y>2466</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cameraOrbitCheckbox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>cameraRotation</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>2353</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>116</x>
+     <y>2632</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cameraOrbitCheckbox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>cameraResetAxis</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>130</x>
+     <y>2353</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>126</x>
+     <y>2735</y>
     </hint>
    </hints>
   </connection>

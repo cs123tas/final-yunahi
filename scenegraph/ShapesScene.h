@@ -44,8 +44,7 @@ public:
 
     virtual void render(SupportCanvas3D *context) override;
     virtual void settingsChanged() override;
-    virtual void restartAnimationScene() override;
-    virtual void resetAnimationScene() override;
+
 
 protected:
     // Set the light uniforms for the lights in the scene. (The view matrix is used so that the

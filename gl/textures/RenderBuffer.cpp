@@ -8,6 +8,9 @@ RenderBuffer::RenderBuffer() :
     m_handle(0)
 {
     // TODO [Task 8] Call glGenRenderbuffers
+    // begin ta code
+    glGenRenderbuffers(1, &m_handle);
+    // end ta code
 }
 
 RenderBuffer::RenderBuffer(RenderBuffer &&that) :
@@ -26,10 +29,16 @@ RenderBuffer& RenderBuffer::operator=(RenderBuffer &&that) {
 RenderBuffer::~RenderBuffer()
 {
     // TODO Don't forget to delete!
+    // begin ta code
+    glDeleteRenderbuffers(1, &m_handle);
+    // end ta code
 }
 
 void RenderBuffer::bind() const {
     // TODO [Task 8] Bind the renderbuffer
+    // begin ta code
+    glBindRenderbuffer(GL_RENDERBUFFER, m_handle);
+    // end ta code
 }
 
 unsigned int RenderBuffer::id() const {
@@ -38,4 +47,7 @@ unsigned int RenderBuffer::id() const {
 
 void RenderBuffer::unbind() const {
     // TODO Don't forget to unbind!
+    // begin ta code
+    glBindRenderbuffer(GL_RENDERBUFFER, 0);
+    // end ta code
 }

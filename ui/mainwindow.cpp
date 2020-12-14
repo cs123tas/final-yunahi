@@ -11,9 +11,10 @@
 #include <math.h>
 #include <QFileDialog>
 #include <QMessageBox>
-#include <iostream>
 #include <stdlib.h>
 #include <unistd.h>
+#include <iostream>
+
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -95,12 +96,12 @@ MainWindow::MainWindow(QWidget *parent) :
         connect(rb, SIGNAL(clicked()), this, SLOT(activateCanvas2D()));
 
     a.clear();
-    a += ui->shapeTypeCone;
-    a += ui->shapeTypeCube;
-    a += ui->shapeTypeCylinder;
-    a += ui->shapeTypeTorus;
-    a += ui->shapeTypeSpecial1;
-    a += ui->shapeTypeSpecial2;
+//    a += ui->shapeTypeCone;
+//    a += ui->shapeTypeCube;
+//    a += ui->shapeTypeCylinder;
+//    a += ui->shapeTypeTorus;
+//    a += ui->shapeTypeSpecial1;
+//    a += ui->shapeTypeSpecial2;
     foreach (QRadioButton *rb, a)
         connect(rb, SIGNAL(clicked()), this, SLOT(activateCanvas3D()));
 
@@ -109,6 +110,8 @@ MainWindow::MainWindow(QWidget *parent) :
     show();
     ui->tabWidget->setCurrentWidget(widget);
     show();
+
+
 
 }
 
@@ -184,45 +187,25 @@ void MainWindow::dataBind() {
 
     // Shapes dock
     BIND(BoolBinding::bindCheckbox(ui->showSceneviewInstead, settings.useSceneviewScene))
-    BIND(ChoiceBinding::bindRadioButtons(
-            shapesButtonGroup,
-            NUM_SHAPE_TYPES,
-            settings.shapeType,
-            ui->shapeTypeCube,
-            ui->shapeTypeCone,
-            ui->shapeTypeSphere,
-            ui->shapeTypeCylinder,
-            ui->shapeTypeTorus,
-            ui->shapeTypeSpecial1,
-            ui->shapeTypeSpecial2))
+//    BIND(ChoiceBinding::bindRadioButtons(
+//            shapesButtonGroup,
+//            NUM_SHAPE_TYPES,
+//            settings.shapeType,
+//            ui->shapeTypeCube,
+//            ui->shapeTypeCone,
+//            ui->shapeTypeSphere,
+//            ui->shapeTypeCylinder,
+//            ui->shapeTypeTorus,
+//            ui->shapeTypeSpecial1,
+//            ui->shapeTypeSpecial2))
     BIND(IntBinding::bindSliderAndTextbox(
-        ui->shapeParameterSlider1, ui->shapeParameterTextbox1, settings.shapeParameter1, 1.f, 100.f))
-    BIND(IntBinding::bindSliderAndTextbox(
-        ui->shapeParameterSlider2, ui->shapeParameterTextbox2, settings.shapeParameter2, 1.f, 100.f))
+        ui->shapeParameterSlider1, ui->shapeParameterTextbox1, settings.shapeParameter1, 1.f, 60.f))
     BIND(FloatBinding::bindSliderAndTextbox(
-        ui->shapeParameterSlider3, ui->shapeParameterTextbox3, settings.shapeParameter3, 1.f, 100.f))
-
-            //cloth
-            BIND(IntBinding::bindSliderAndTextbox(
-                     ui->dimensionSlider,ui->dimensionTextBox,settings.dimension,0.f,100.f))
-            BIND(FloatBinding::bindSliderAndTextbox(
-                     ui->particleMassSlider,ui->particleMassTextBox,settings.particleMass,3.f,50.f))
-            BIND(IntBinding::bindSliderAndTextbox(
-                     ui->structuralStiffnessSlider,ui->structuralStiffnessTextBox,settings.structuralStiffness,0.f,50.f))
-            BIND(IntBinding::bindSliderAndTextbox(
-                     ui->shearStiffnessSlider,ui->shearStiffnessTextBox,settings.shearStiffness,0.f,50.f))
-            BIND(IntBinding::bindSliderAndTextbox(
-                     ui->bendStiffnessSlider,ui->bendStiffnessTextBox,settings.bendStiffness,0.f,50.f))
-            BIND(FloatBinding::bindSliderAndTextbox(
-                     ui->dampingSlider,ui->dampingTextBox,settings.damping,0.f,1.f))
-            BIND(FloatBinding::bindSliderAndTextbox(
-                     ui->viscousSlider,ui->viscousTextBox,settings.viscous,0.f,2.f))
-            BIND(IntBinding::bindSliderAndTextbox(
-                     ui->windVelocitySlider,ui->windVelocityTextBox,settings.windVelocity,0.f,50.f))
-            BIND(IntBinding::bindSliderAndTextbox(
-                     ui->windAngleSlider,ui->windAngleTextBox,settings.windAngle,0.f,360.f))
-
-            //cloth ends
+        ui->shapeParameterSlider2, ui->shapeParameterTextbox2, settings.shapeParameter2, 0.1f, 1.f))
+    BIND(FloatBinding::bindSliderAndTextbox(
+        ui->shapeParameterSlider3, ui->shapeParameterTextbox3, settings.shapeParameter3, 1.f, 5.f))
+    BIND(FloatBinding::bindSliderAndTextbox(
+        ui->shapeParameterSlider4, ui->shapeParameterTextbox4, settings.shapeParameter4, 0.f, 360.f))
     BIND(BoolBinding::bindCheckbox(ui->useLightingCheckbox, settings.useLighting))
     BIND(BoolBinding::bindCheckbox(ui->drawWireframeCheckbox, settings.drawWireframe))
     BIND(BoolBinding::bindCheckbox(ui->drawNormalsCheckbox, settings.drawNormals))
@@ -438,44 +421,6 @@ void MainWindow::renderImage() {
     }
 }
 
-//cloth
-void MainWindow::restartClothMainWindow(){
-    //change to while
-    m_canvas3D->settingsChanged();
-
-   while(true){
-        m_canvas3D->restartAnimationSupportCanvas3d();
-        QCoreApplication::processEvents();
-        //in miliseconds
-        usleep(1);
-    }
-    std::cout<<"end"<<std::endl;
-
-}
-
-
-void MainWindow::resetClothMainWindow(){
-
-    ui->dimensionTextBox->setText(QString("15"));
-    ui->particleMassTextBox->setText(QString("1"));
-    ui->structuralStiffnessTextBox->setText(QString("25"));
-    ui->shearStiffnessTextBox->setText(QString("25"));
-    ui->bendStiffnessTextBox->setText(QString("25"));
-    ui->dampingTextBox->setText(QString("0.5"));
-    ui->viscousLabel->setText(QString("0.5"));
-    ui->windVelocityTextBox->setText(QString("15"));
-    ui->windAngleTextBox->setText(QString("0"));
-
-
-    m_canvas3D->resetAnimationSupportCanvas3d();
-
-
-
-
-}
-
-//cloth end
-
 void MainWindow::setAllEnabled(bool enabled) {
     QList<QWidget *> widgets;
     widgets += ui->brushDock;
@@ -578,3 +523,105 @@ void MainWindow::updateCameraHeightAngle() {
 void MainWindow::setCameraAxonometric() {
     m_canvas3D->setCameraAxonometric();
 }
+
+void MainWindow::updateMainWindow(){
+    //change to while
+//    m_canvas3D->settingsChanged();
+   m_paused = false;
+   while(!m_paused){
+        m_canvas3D->updateSupportCanvas3D();
+        QCoreApplication::processEvents();
+        //in miliseconds
+        usleep(1);
+    }
+
+}
+
+void MainWindow::playPauseMainWindow(){
+    m_paused = m_paused ? false : true;
+    if (!m_paused)
+        updateMainWindow();
+}
+
+void MainWindow::restartMainWindow(){
+    m_paused = true;
+    settings.superman = true;
+
+    //
+    QString file = QString::fromStdString("/Users/yuna.hiraide/Desktop/data/scenes/general/lego.xml");
+    if (!file.isNull()) {
+        if (file.endsWith(".xml")) {
+            CS123XmlSceneParser parser(file.toLatin1().data());
+            if (parser.parse()) {
+                m_canvas3D->loadSceneviewSceneFromParser(parser);
+                ui->showSceneviewInstead->setChecked(true);
+
+                // Set the camera for the new scene
+                CS123SceneCameraData camera;
+                if (parser.getCameraData(camera)) {
+                    camera.pos[3] = 1;
+                    camera.look[3] = 0;
+                    camera.up[3] = 0;
+
+                    CamtransCamera *cam = m_canvas3D->getCamtransCamera();
+                    cam->orientLook(camera.pos, camera.look, camera.up);
+                    cam->setHeightAngle(camera.heightAngle);
+                }
+
+                if (settings.useOrbitCamera) {
+                    ui->cameraOrbitCheckbox->setChecked(false);
+                }
+
+                activateCanvas3D();
+            } else {
+                QMessageBox::critical(this, "Error", "Could not load scene \"" + file + "\"");
+            }
+        }
+    }
+
+
+
+    m_canvas3D->settingsChanged();
+}
+
+void MainWindow::batmanMainWindow(){
+    m_paused = true;
+    settings.superman = false;
+    //
+    QString file = QString::fromStdString("/Users/yuna.hiraide/Desktop/data/scenes/general/batman.xml");
+    if (!file.isNull()) {
+        if (file.endsWith(".xml")) {
+            CS123XmlSceneParser parser(file.toLatin1().data());
+
+            if (parser.parse()) {
+                m_canvas3D->loadSceneviewSceneFromParser(parser);
+                ui->showSceneviewInstead->setChecked(true);
+
+                // Set the camera for the new scene
+                CS123SceneCameraData camera;
+                if (parser.getCameraData(camera)) {
+                    camera.pos[3] = 1;
+                    camera.look[3] = 0;
+                    camera.up[3] = 0;
+
+                    CamtransCamera *cam = m_canvas3D->getCamtransCamera();
+                    cam->orientLook(camera.pos, camera.look, camera.up);
+                    cam->setHeightAngle(camera.heightAngle);
+                }
+
+                if (settings.useOrbitCamera) {
+                    ui->cameraOrbitCheckbox->setChecked(false);
+                }
+
+                activateCanvas3D();
+            } else {
+                QMessageBox::critical(this, "Error", "Could not load scene \"" + file + "\"");
+            }
+        }
+    }
+
+
+
+    m_canvas3D->settingsChanged();
+}
+

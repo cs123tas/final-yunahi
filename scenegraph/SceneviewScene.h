@@ -2,6 +2,10 @@
 #define SCENEVIEWSCENE_H
 
 #include "OpenGLScene.h"
+#include "shapes/Shape.h"
+#include <map>
+#include <QCoreApplication>
+#include "gl/textures/Texture2D.h"
 
 #include <memory>
 
@@ -40,6 +44,8 @@ public:
     // pointer.  This will be used during the "modeler" lab, so don't worry about it for now.
     void setSelection(int x, int y);
 
+
+
 private:
 
 
@@ -54,11 +60,28 @@ private:
     void setMatrixUniforms(CS123::GL::Shader *shader, SupportCanvas3D *context);
     void setLights();
     void renderGeometry();
+    void updateScene() override;
 
     std::unique_ptr<CS123::GL::CS123Shader> m_phongShader;
     std::unique_ptr<CS123::GL::Shader> m_wireframeShader;
     std::unique_ptr<CS123::GL::Shader> m_normalsShader;
     std::unique_ptr<CS123::GL::Shader> m_normalsArrowShader;
+
+    CS123SceneMaterial m_material;
+    std::map<PrimitiveType,std::unique_ptr<Shape>> m_shapes;
+    std::unique_ptr<Shape> m_cloth;
+
+    void renderGeometryAsWireframe();
+    void renderGeometryAsArrows ();
+
+    void loadTexture();
+    std::map<std::string,QImage> m_texture;
+
+    void loadTextures();
+    bool m_loadTextures;
+    std::map<std::string, CS123::GL::Texture2D> m_textures;
+
+
 
 };
 

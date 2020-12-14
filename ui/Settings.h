@@ -100,24 +100,13 @@ struct Settings {
     bool useSceneviewScene;
     int shapeType;              // Selected shape type
     int shapeParameter1;
-    int shapeParameter2;
+    float shapeParameter2;
     float shapeParameter3;
-
-    //cloth
-    int dimension;
-    float particleMass;
-    int structuralStiffness;
-    int shearStiffness;
-    int bendStiffness;
-    float damping;
-    float viscous;
-    int windVelocity;
-    int windAngle;
-    //cloth ends
-
+    float shapeParameter4;
     bool useLighting;           // Enable default lighting
     bool drawWireframe;         // Draw wireframe only
     bool drawNormals;           // Turn normals on and off
+    bool superman;
 
     // Camtrans
     bool useOrbitCamera;        // Use the built-in orbiting camera instead of the Camtrans camera

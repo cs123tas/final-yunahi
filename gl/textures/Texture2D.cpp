@@ -11,24 +11,29 @@ Texture2D::Texture2D(unsigned char *data, int width, int height, GLenum type)
     // TODO [Task 2]
     // Bind the texture by calling bind() and filling it in
     // Generate the texture with glTexImage2D
+    // begin ta code
+    bind();
+    glTexImage2D(GL_TEXTURE_2D, 0, internalFormat , width, height, 0, GL_RGBA, type, data);
+    // end ta code
 
     // TODO Don't forget to unbind!
-    //textureHelp7
-//    GLuint texture;
-//    glGenTextures(1,&texture);
-//    glBindTexture(GL_TEXTURE_2D,texture);
-//    glTexImage2D(GL_TEXTURE_2D,0,internalFormat,width,height,0,GL_RGBA,GL_UNSIGNED_BYTE,data);
-//    glUseProgram(0);
-
-
+    // begin ta code
+    unbind();
+    // end ta code
 }
 
 void Texture2D::bind() const {
     // TODO [Task 2]
+    // begin ta code
+    glBindTexture(GL_TEXTURE_2D, m_handle);
+    // end ta code
 }
 
 void Texture2D::unbind() const {
     // TODO Don't forget to unbind!
+    // begin ta code
+    glBindTexture(GL_TEXTURE_2D, 0);
+    // end ta code
 }
 
 }}

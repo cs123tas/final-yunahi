@@ -5,21 +5,14 @@
 #include <QFileDialog>
 
 #include <sstream>
-#include <iostream>
-
 
 #include "shapes/ExampleShape.h"
-#include "shapes/cloth.h"
 
 using namespace CS123::GL;
 #include "gl/shaders/CS123Shader.h"
 #include "gl/shaders/Shader.h"
 
 #include "ResourceLoader.h"
-
-#include "gl/textures/Texture2D.h"
-#include "gl/textures/TextureParametersBuilder.h"
-#include "gl/textures/TextureParameters.h"
 
 ShapesScene::ShapesScene(int width, int height) :
     m_shape(nullptr),
@@ -66,18 +59,6 @@ void ShapesScene::loadPhongShader() {
     std::string vertexSource = ResourceLoader::loadResourceFileToString(":/shaders/default.vert");
     std::string fragmentSource = ResourceLoader::loadResourceFileToString(":/shaders/default.frag");
     m_phongShader = std::make_unique<CS123Shader>(vertexSource, fragmentSource);
-    //textureHelp4
-//    QString filenameQ = QString::fromStdString("/Users/yuna.hiraide/Desktop/texture.png");
-//    QImage image = QImage(filenameQ);
-//    QImage fImage = QGLWidget::convertToGLFormat(image);
-//    CS123::GL::Texture2D texture(fImage.bits(), fImage.width(), fImage.height());
-//    CS123::GL::TextureParametersBuilder builder;
-//    builder.setFilter(CS123::GL::TextureParameters::FILTER_METHOD::LINEAR);
-//    builder.setWrap(CS123::GL::TextureParameters::WRAP_METHOD::REPEAT);
-//    CS123::GL::TextureParameters parameters = builder.build();
-//    parameters.applyTo(texture);
-//    m_phongShader->setTexture("tex",texture);
-//    m_phongShader->setUniform("repeatUV",glm::vec2(1,1));
 }
 
 void ShapesScene::loadWireframeShader() {
@@ -199,25 +180,6 @@ void ShapesScene::setLights(const glm::mat4 viewMatrix) {
 
 void ShapesScene::settingsChanged() {
     // TODO: [SHAPES] Fill this in, for now default to an example shape
-
-    m_shape = std::make_unique<Cloth>(clothParam{settings.dimension,settings.particleMass,
-                                                 settings.structuralStiffness,settings.shearStiffness,
-                                                 settings.bendStiffness,settings.damping,settings.viscous,
-                                                settings.windVelocity,settings.windAngle},
-                                      settings.shapeParameter1);
-}
-
-void ShapesScene::restartAnimationScene()   {
-    m_shape->restartAnimationCloth();
-
-}
-
-void ShapesScene::resetAnimationScene()   {
-    m_shape = std::make_unique<Cloth>(clothParam{settings.dimension,settings.particleMass,
-                                                 settings.structuralStiffness,settings.shearStiffness,
-                                                 settings.bendStiffness,settings.damping,settings.viscous,
-                                                settings.windVelocity,settings.windAngle},
-                                      settings.shapeParameter1);
-
+    m_shape = std::make_unique<ExampleShape>(settings.shapeParameter1, settings.shapeParameter2);
 }
 

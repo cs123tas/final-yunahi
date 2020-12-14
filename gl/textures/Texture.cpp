@@ -12,6 +12,9 @@ Texture::Texture() :
     m_handle(0)
 {
     // TODO [Task 2] Generate the texture
+    // begin ta code
+    glGenTextures(1, &m_handle);
+    // end ta code
 }
 
 Texture::Texture(Texture &&that) :
@@ -30,6 +33,9 @@ Texture& Texture::operator=(Texture &&that) {
 Texture::~Texture()
 {
     // TODO Don't forget to delete!
+    // begin ta code
+    glDeleteTextures(1, &m_handle);
+    // end ta code
 }
 
 unsigned int Texture::id() const {

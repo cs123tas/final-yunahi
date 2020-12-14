@@ -19,7 +19,6 @@ inline void insertVec3(std::vector<float> &data, glm::vec3 v){
     data.push_back(v.y);
     data.push_back(v.z);
 }
-//TEXTUREERROR
 
 inline void insertVec2(std::vector<float> &data, glm::vec2 v){
     data.push_back(v.x);
@@ -35,16 +34,24 @@ class Shape
 {
 public:
     Shape();
-    virtual ~Shape();
+
+    ~Shape();
     void draw();
-    virtual void restartAnimationCloth();
+    virtual void update();
+
 
 protected:
+
     /** builds the VAO, pretty much the same as from lab 1 */
     void buildVAO();
-
+    void buildSquare(glm::vec3 point1,glm::vec3 normal1,glm::vec3 point2,glm::vec3 normal2,
+                     glm::vec3 point3,glm::vec3 normal3,glm::vec3 point4,glm::vec3 normal4);
     std::vector<GLfloat> m_vertexData;
     std::unique_ptr<CS123::GL::VAO> m_VAO;
+    virtual void buildVertexData();
+
+
+
 };
 
 #endif // SHAPE_H

@@ -92,70 +92,22 @@ public:
     QWidget *shapesDockContents;
     QVBoxLayout *verticalLayout_7;
     QCheckBox *showSceneviewInstead;
-    QGroupBox *shapeType;
-    QVBoxLayout *verticalLayout_8;
-    QRadioButton *shapeTypeCube;
-    QRadioButton *shapeTypeCone;
-    QRadioButton *shapeTypeSphere;
-    QRadioButton *shapeTypeCylinder;
-    QRadioButton *shapeTypeTorus;
-    QRadioButton *shapeTypeSpecial1;
-    QRadioButton *shapeTypeSpecial2;
     QGroupBox *shapeParameters;
     QGridLayout *gridLayout_4;
     QLabel *shapeParameterLabel1;
     QLabel *shapeParameterLabel2;
     QLabel *shapeParameterLabel3;
-
-    //cloth
-    QLabel *dimensionLabel;
-    QLabel *particleMassLabel;
-    QLabel *structuralStiffnessLabel;
-    QLabel *shearStiffnessLabel;
-    QLabel *bendStiffnessLabel;
-    QLabel *dampingLabel;
-    QLabel *viscousLabel;
-    QLabel *windVelocityLabel;
-    QLabel *windAngleLabel;
-    //cloth ends
-
+    QLabel *shapeParameterLabel4;
 
     QSlider *shapeParameterSlider1;
     QSlider *shapeParameterSlider2;
     QSlider *shapeParameterSlider3;
-
-    //cloth
-    QSlider *dimensionSlider;
-    QSlider *particleMassSlider;
-    QSlider *structuralStiffnessSlider;
-    QSlider *shearStiffnessSlider;
-    QSlider *bendStiffnessSlider;
-    QSlider *dampingSlider;
-    QSlider *viscousSlider;
-    QSlider *windVelocitySlider;
-    QSlider *windAngleSlider;
-    //cloth ends
+    QSlider *shapeParameterSlider4;
 
     QLineEdit *shapeParameterTextbox1;
     QLineEdit *shapeParameterTextbox2;
     QLineEdit *shapeParameterTextbox3;
-
-    //cloth
-    QLineEdit *dimensionTextBox;
-    QLineEdit *particleMassTextBox;
-    QLineEdit *structuralStiffnessTextBox;
-    QLineEdit *shearStiffnessTextBox;
-    QLineEdit *bendStiffnessTextBox;
-    QLineEdit *dampingTextBox;
-    QLineEdit *viscousTextBox;
-    QLineEdit *windVelocityTextBox;
-    QLineEdit *windAngleTextBox;
-    //cloth ends
-
-    //cloth Button
-    QPushButton *restart;
-    QPushButton *reset;
-    //cloth button ends
+    QLineEdit *shapeParameterTextbox4;
 
     QCheckBox *useLightingCheckbox;
     QCheckBox *drawWireframeCheckbox;
@@ -238,12 +190,12 @@ public:
     QCheckBox *cameraOrbitCheckbox;
     QGroupBox *cameraPosition;
     QGridLayout *gridLayout;
+    QDial *transX;
+    QDial *transZ;
     QLabel *cameraPositionLabelX;
+    QDial *transY;
     QLabel *cameraPositionLabelY;
     QLabel *cameraPositionLabelZ;
-    QDial *transX;
-    QDial *transY;
-    QDial *transZ;
     QGroupBox *cameraRotation;
     QVBoxLayout *verticalLayout_13;
     QWidget *cameraRotation_2;
@@ -279,6 +231,12 @@ public:
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuToolbars;
+
+    QPushButton *superman;
+    QPushButton *batman;
+    QPushButton *play;
+
+
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -332,7 +290,7 @@ public:
         scrollArea->setWidgetResizable(true);
         canvas2D = new Canvas2D();
         canvas2D->setObjectName(QString::fromUtf8("canvas2D"));
-        canvas2D->setGeometry(QRect(0, 0, 250, 3058));
+        canvas2D->setGeometry(QRect(0, 0, 339, 3061));
         scrollArea->setWidget(canvas2D);
 
         gridLayout_11->addWidget(scrollArea, 0, 0, 1, 1);
@@ -563,52 +521,6 @@ public:
 
         verticalLayout_7->addWidget(showSceneviewInstead);
 
-        shapeType = new QGroupBox(shapesDockContents);
-        shapeType->setObjectName(QString::fromUtf8("shapeType"));
-        verticalLayout_8 = new QVBoxLayout(shapeType);
-        verticalLayout_8->setSpacing(6);
-        verticalLayout_8->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
-        verticalLayout_8->setContentsMargins(-1, 5, -1, 5);
-        shapeTypeCube = new QRadioButton(shapeType);
-        shapeTypeCube->setObjectName(QString::fromUtf8("shapeTypeCube"));
-        shapeTypeCube->setChecked(true);
-
-        verticalLayout_8->addWidget(shapeTypeCube);
-
-        shapeTypeCone = new QRadioButton(shapeType);
-        shapeTypeCone->setObjectName(QString::fromUtf8("shapeTypeCone"));
-
-        verticalLayout_8->addWidget(shapeTypeCone);
-
-        shapeTypeSphere = new QRadioButton(shapeType);
-        shapeTypeSphere->setObjectName(QString::fromUtf8("shapeTypeSphere"));
-
-        verticalLayout_8->addWidget(shapeTypeSphere);
-
-        shapeTypeCylinder = new QRadioButton(shapeType);
-        shapeTypeCylinder->setObjectName(QString::fromUtf8("shapeTypeCylinder"));
-
-        verticalLayout_8->addWidget(shapeTypeCylinder);
-
-        shapeTypeTorus = new QRadioButton(shapeType);
-        shapeTypeTorus->setObjectName(QString::fromUtf8("shapeTypeTorus"));
-
-        verticalLayout_8->addWidget(shapeTypeTorus);
-
-        shapeTypeSpecial1 = new QRadioButton(shapeType);
-        shapeTypeSpecial1->setObjectName(QString::fromUtf8("shapeTypeSpecial1"));
-
-        verticalLayout_8->addWidget(shapeTypeSpecial1);
-
-        shapeTypeSpecial2 = new QRadioButton(shapeType);
-        shapeTypeSpecial2->setObjectName(QString::fromUtf8("shapeTypeSpecial2"));
-
-        verticalLayout_8->addWidget(shapeTypeSpecial2);
-
-
-        verticalLayout_7->addWidget(shapeType);
-
         shapeParameters = new QGroupBox(shapesDockContents);
         shapeParameters->setObjectName(QString::fromUtf8("shapeParameters"));
         gridLayout_4 = new QGridLayout(shapeParameters);
@@ -630,47 +542,15 @@ public:
         shapeParameterLabel3 = new QLabel(shapeParameters);
         shapeParameterLabel3->setObjectName(QString::fromUtf8("shapeParameterLabel3"));
 
+
+
         gridLayout_4->addWidget(shapeParameterLabel3, 4, 0, 1, 1);
 
-        //cloth label
-        dimensionLabel = new QLabel(shapeParameters);
-        dimensionLabel->setObjectName(QString::fromUtf8("dimensionLabel"));
-        gridLayout_4->addWidget(dimensionLabel, 6, 0, 1, 1);
+        shapeParameterLabel4 = new QLabel(shapeParameters);
+        shapeParameterLabel4->setObjectName(QString::fromUtf8("shapeParameterLabel4"));
 
-        particleMassLabel = new QLabel(shapeParameters);
-        particleMassLabel->setObjectName(QString::fromUtf8("particleMassLabel"));
-        gridLayout_4->addWidget(particleMassLabel, 8, 0, 1, 1);
+        gridLayout_4->addWidget(shapeParameterLabel4, 6, 0, 1, 1);
 
-        structuralStiffnessLabel = new QLabel(shapeParameters);
-        structuralStiffnessLabel->setObjectName(QString::fromUtf8("structuralStiffnessLabel"));
-        gridLayout_4->addWidget(structuralStiffnessLabel, 10, 0, 1, 1);
-
-        shearStiffnessLabel = new QLabel(shapeParameters);
-        shearStiffnessLabel->setObjectName(QString::fromUtf8("shearStiffnessLabel"));
-        gridLayout_4->addWidget(shearStiffnessLabel, 12, 0, 1, 1);
-
-        bendStiffnessLabel = new QLabel(shapeParameters);
-        bendStiffnessLabel->setObjectName(QString::fromUtf8("bendStiffnessLabel"));
-        gridLayout_4->addWidget(bendStiffnessLabel, 14, 0, 1, 1);
-
-        dampingLabel = new QLabel(shapeParameters);
-        dampingLabel->setObjectName(QString::fromUtf8("dampingLabel"));
-        gridLayout_4->addWidget(dampingLabel, 16, 0, 1, 1);
-
-        viscousLabel = new QLabel(shapeParameters);
-        viscousLabel->setObjectName(QString::fromUtf8("viscousLabel"));
-        gridLayout_4->addWidget(viscousLabel, 18, 0, 1, 1);
-
-        windVelocityLabel = new QLabel(shapeParameters);
-        windVelocityLabel->setObjectName(QString::fromUtf8("windVelocityLabel"));
-        gridLayout_4->addWidget(windVelocityLabel, 20, 0, 1, 1);
-
-        windAngleLabel = new QLabel(shapeParameters);
-        windAngleLabel->setObjectName(QString::fromUtf8("windAngleLabel"));
-        gridLayout_4->addWidget(windAngleLabel, 22, 0, 1, 1);
-
-
-        //cloth ends
 
         shapeParameterSlider1 = new QSlider(shapeParameters);
         shapeParameterSlider1->setObjectName(QString::fromUtf8("shapeParameterSlider1"));
@@ -693,62 +573,13 @@ public:
 
         gridLayout_4->addWidget(shapeParameterSlider3, 4, 1, 1, 1);
 
-        //cloth slider
-        dimensionSlider = new QSlider(shapeParameters);
-        dimensionSlider->setObjectName(QString::fromUtf8("dimensionSlider"));
-        dimensionSlider->setMinimumSize(QSize(100, 0));
-        dimensionSlider->setOrientation(Qt::Horizontal);
-        gridLayout_4->addWidget(dimensionSlider, 6, 1, 1, 1);
+        shapeParameterSlider4 = new QSlider(shapeParameters);
+        shapeParameterSlider4->setObjectName(QString::fromUtf8("shapeParameterSlider4"));
+        shapeParameterSlider4->setMinimumSize(QSize(100, 0));
+        shapeParameterSlider4->setOrientation(Qt::Horizontal);
 
-        particleMassSlider = new QSlider(shapeParameters);
-        particleMassSlider->setObjectName(QString::fromUtf8("particleMassSlider"));
-        particleMassSlider->setMinimumSize(QSize(100, 0));
-        particleMassSlider->setOrientation(Qt::Horizontal);
-        gridLayout_4->addWidget(particleMassSlider, 8, 1, 1, 1);
+        gridLayout_4->addWidget(shapeParameterSlider4, 6, 1, 1, 1);
 
-        structuralStiffnessSlider = new QSlider(shapeParameters);
-        structuralStiffnessSlider->setObjectName(QString::fromUtf8("structuralStiffnessSlider"));
-        structuralStiffnessSlider->setMinimumSize(QSize(100, 0));
-        structuralStiffnessSlider->setOrientation(Qt::Horizontal);
-        gridLayout_4->addWidget(structuralStiffnessSlider, 10, 1, 1, 1);
-
-        shearStiffnessSlider = new QSlider(shapeParameters);
-        shearStiffnessSlider->setObjectName(QString::fromUtf8("shearStiffnessSlider"));
-        shearStiffnessSlider->setMinimumSize(QSize(100, 0));
-        shearStiffnessSlider->setOrientation(Qt::Horizontal);
-        gridLayout_4->addWidget(shearStiffnessSlider, 12, 1, 1, 1);
-
-        bendStiffnessSlider = new QSlider(shapeParameters);
-        bendStiffnessSlider->setObjectName(QString::fromUtf8("bendStiffnessSlider"));
-        bendStiffnessSlider->setMinimumSize(QSize(100, 0));
-        bendStiffnessSlider->setOrientation(Qt::Horizontal);
-        gridLayout_4->addWidget(bendStiffnessSlider, 14, 1, 1, 1);
-
-        dampingSlider = new QSlider(shapeParameters);
-        dampingSlider->setObjectName(QString::fromUtf8("dampingSlider"));
-        dampingSlider->setMinimumSize(QSize(100, 0));
-        dampingSlider->setOrientation(Qt::Horizontal);
-        gridLayout_4->addWidget(dampingSlider, 16, 1, 1, 1);
-
-        viscousSlider = new QSlider(shapeParameters);
-        viscousSlider->setObjectName(QString::fromUtf8("viscousSlider"));
-        viscousSlider->setMinimumSize(QSize(100, 0));
-        viscousSlider->setOrientation(Qt::Horizontal);
-        gridLayout_4->addWidget(viscousSlider, 18, 1, 1, 1);
-
-        windVelocitySlider = new QSlider(shapeParameters);
-        windVelocitySlider->setObjectName(QString::fromUtf8("windVelocitySlider"));
-        windVelocitySlider->setMinimumSize(QSize(100, 0));
-        windVelocitySlider->setOrientation(Qt::Horizontal);
-        gridLayout_4->addWidget(windVelocitySlider, 20, 1, 1, 1);
-
-        windAngleSlider = new QSlider(shapeParameters);
-        windAngleSlider->setObjectName(QString::fromUtf8("windAngleSlider"));
-        windAngleSlider->setMinimumSize(QSize(100, 0));
-        windAngleSlider->setOrientation(Qt::Horizontal);
-        gridLayout_4->addWidget(windAngleSlider, 22, 1, 1, 1);
-
-        //cloth ends
 
         shapeParameterTextbox1 = new QLineEdit(shapeParameters);
         shapeParameterTextbox1->setObjectName(QString::fromUtf8("shapeParameterTextbox1"));
@@ -771,76 +602,15 @@ public:
 
         gridLayout_4->addWidget(shapeParameterTextbox3, 4, 2, 1, 1);
 
-        //cloth textbox
-        dimensionTextBox = new QLineEdit(shapeParameters);
-        dimensionTextBox->setObjectName(QString::fromUtf8("dimensionTextBox"));
-        dimensionTextBox->setMinimumSize(QSize(40, 0));
-        dimensionTextBox->setMaximumSize(QSize(40, 16777215));
-        gridLayout_4->addWidget(dimensionTextBox, 6, 2, 1, 1);
+        shapeParameterTextbox4 = new QLineEdit(shapeParameters);
+        shapeParameterTextbox4->setObjectName(QString::fromUtf8("shapeParameterTextbox3"));
+        shapeParameterTextbox4->setMinimumSize(QSize(40, 0));
+        shapeParameterTextbox4->setMaximumSize(QSize(40, 16777215));
 
-        particleMassTextBox = new QLineEdit(shapeParameters);
-        particleMassTextBox->setObjectName(QString::fromUtf8("particleMassTextBox"));
-        particleMassTextBox->setMinimumSize(QSize(40, 0));
-        particleMassTextBox->setMaximumSize(QSize(40, 16777215));
-        gridLayout_4->addWidget(particleMassTextBox, 8, 2, 1, 1);
+        gridLayout_4->addWidget(shapeParameterTextbox4, 6, 2, 1, 1);
 
-        structuralStiffnessTextBox = new QLineEdit(shapeParameters);
-        structuralStiffnessTextBox->setObjectName(QString::fromUtf8("structuralStiffnessTextBox"));
-        structuralStiffnessTextBox->setMinimumSize(QSize(40, 0));
-        structuralStiffnessTextBox->setMaximumSize(QSize(40, 16777215));
-        gridLayout_4->addWidget(structuralStiffnessTextBox, 10, 2, 1, 1);
-
-        shearStiffnessTextBox = new QLineEdit(shapeParameters);
-        shearStiffnessTextBox->setObjectName(QString::fromUtf8("shearStiffnessTextBox"));
-        shearStiffnessTextBox->setMinimumSize(QSize(40, 0));
-        shearStiffnessTextBox->setMaximumSize(QSize(40, 16777215));
-        gridLayout_4->addWidget(shearStiffnessTextBox, 12, 2, 1, 1);
-
-        bendStiffnessTextBox = new QLineEdit(shapeParameters);
-        bendStiffnessTextBox->setObjectName(QString::fromUtf8("bendStiffnessTextBox"));
-        bendStiffnessTextBox->setMinimumSize(QSize(40, 0));
-        bendStiffnessTextBox->setMaximumSize(QSize(40, 16777215));
-        gridLayout_4->addWidget(bendStiffnessTextBox, 14, 2, 1, 1);
-
-        dampingTextBox = new QLineEdit(shapeParameters);
-        dampingTextBox->setObjectName(QString::fromUtf8("dampingTextBox"));
-        dampingTextBox->setMinimumSize(QSize(40, 0));
-        dampingTextBox->setMaximumSize(QSize(40, 16777215));
-        gridLayout_4->addWidget(dampingTextBox, 16, 2, 1, 1);
-
-        viscousTextBox = new QLineEdit(shapeParameters);
-        viscousTextBox->setObjectName(QString::fromUtf8("viscousTextBox"));
-        viscousTextBox->setMinimumSize(QSize(40, 0));
-        viscousTextBox->setMaximumSize(QSize(40, 16777215));
-        gridLayout_4->addWidget(viscousTextBox, 18, 2, 1, 1);
-
-        windVelocityTextBox = new QLineEdit(shapeParameters);
-        windVelocityTextBox->setObjectName(QString::fromUtf8("windVelocityTextBox"));
-        windVelocityTextBox->setMinimumSize(QSize(40, 0));
-        windVelocityTextBox->setMaximumSize(QSize(40, 16777215));
-        gridLayout_4->addWidget(windVelocityTextBox, 20, 2, 1, 1);
-
-        windAngleTextBox = new QLineEdit(shapeParameters);
-        windAngleTextBox->setObjectName(QString::fromUtf8("windAngleTextBox"));
-        windAngleTextBox->setMinimumSize(QSize(40, 0));
-        windAngleTextBox->setMaximumSize(QSize(40, 16777215));
-        gridLayout_4->addWidget(windAngleTextBox, 22, 2, 1, 1);
-
-        //cloth ends
 
         verticalLayout_7->addWidget(shapeParameters);
-
-        //cloth button
-
-        restart = new QPushButton(shapesDockContents);
-        restart->setObjectName(QString::fromUtf8("restart"));
-        verticalLayout_7->addWidget(restart);
-
-        reset = new QPushButton(shapesDockContents);
-        reset->setObjectName(QString::fromUtf8("reset"));
-        verticalLayout_7->addWidget(reset);
-
-        //cloth ends
 
         useLightingCheckbox = new QCheckBox(shapesDockContents);
         useLightingCheckbox->setObjectName(QString::fromUtf8("useLightingCheckbox"));
@@ -861,6 +631,24 @@ public:
         shapesDockEmptySpace->setObjectName(QString::fromUtf8("shapesDockEmptySpace"));
         sizePolicy2.setHeightForWidth(shapesDockEmptySpace->sizePolicy().hasHeightForWidth());
         shapesDockEmptySpace->setSizePolicy(sizePolicy2);
+
+
+        superman = new QPushButton(shapesDockContents);
+        superman->setObjectName(QString::fromUtf8("superman"));
+
+        verticalLayout_7->addWidget(superman);
+
+        batman = new QPushButton(shapesDockContents);
+        batman->setObjectName(QString::fromUtf8("batman"));
+
+        verticalLayout_7->addWidget(batman);
+
+
+        play = new QPushButton(shapesDockContents);
+        play->setObjectName(QString::fromUtf8("play"));
+
+        verticalLayout_7->addWidget(play);
+
 
         verticalLayout_7->addWidget(shapesDockEmptySpace);
 
@@ -1291,24 +1079,6 @@ public:
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setVerticalSpacing(5);
         gridLayout->setContentsMargins(-1, 5, -1, 5);
-        cameraPositionLabelX = new QLabel(cameraPosition);
-        cameraPositionLabelX->setObjectName(QString::fromUtf8("cameraPositionLabelX"));
-        cameraPositionLabelX->setAlignment(Qt::AlignCenter);
-
-        gridLayout->addWidget(cameraPositionLabelX, 1, 0, 1, 1);
-
-        cameraPositionLabelY = new QLabel(cameraPosition);
-        cameraPositionLabelY->setObjectName(QString::fromUtf8("cameraPositionLabelY"));
-        cameraPositionLabelY->setAlignment(Qt::AlignCenter);
-
-        gridLayout->addWidget(cameraPositionLabelY, 1, 1, 1, 1);
-
-        cameraPositionLabelZ = new QLabel(cameraPosition);
-        cameraPositionLabelZ->setObjectName(QString::fromUtf8("cameraPositionLabelZ"));
-        cameraPositionLabelZ->setAlignment(Qt::AlignCenter);
-
-        gridLayout->addWidget(cameraPositionLabelZ, 1, 2, 1, 1);
-
         transX = new QDial(cameraPosition);
         transX->setObjectName(QString::fromUtf8("transX"));
         transX->setMinimumSize(QSize(60, 60));
@@ -1322,6 +1092,26 @@ public:
         transX->setWrapping(true);
 
         gridLayout->addWidget(transX, 0, 0, 1, 1);
+
+        transZ = new QDial(cameraPosition);
+        transZ->setObjectName(QString::fromUtf8("transZ"));
+        transZ->setMinimumSize(QSize(60, 60));
+        transZ->setMaximumSize(QSize(60, 60));
+        transZ->setMinimum(-360);
+        transZ->setMaximum(360);
+        transZ->setSingleStep(10);
+        transZ->setPageStep(30);
+        transZ->setOrientation(Qt::Horizontal);
+        transZ->setInvertedControls(true);
+        transZ->setWrapping(true);
+
+        gridLayout->addWidget(transZ, 0, 2, 1, 1);
+
+        cameraPositionLabelX = new QLabel(cameraPosition);
+        cameraPositionLabelX->setObjectName(QString::fromUtf8("cameraPositionLabelX"));
+        cameraPositionLabelX->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(cameraPositionLabelX, 1, 0, 1, 1);
 
         transY = new QDial(cameraPosition);
         transY->setObjectName(QString::fromUtf8("transY"));
@@ -1337,19 +1127,17 @@ public:
 
         gridLayout->addWidget(transY, 0, 1, 1, 1);
 
-        transZ = new QDial(cameraPosition);
-        transZ->setObjectName(QString::fromUtf8("transZ"));
-        transZ->setMinimumSize(QSize(60, 60));
-        transZ->setMaximumSize(QSize(60, 60));
-        transZ->setMinimum(-360);
-        transZ->setMaximum(360);
-        transZ->setSingleStep(10);
-        transZ->setPageStep(30);
-        transZ->setOrientation(Qt::Horizontal);
-        transZ->setInvertedControls(true);
-        transZ->setWrapping(true);
+        cameraPositionLabelY = new QLabel(cameraPosition);
+        cameraPositionLabelY->setObjectName(QString::fromUtf8("cameraPositionLabelY"));
+        cameraPositionLabelY->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(transZ, 0, 2, 1, 1);
+        gridLayout->addWidget(cameraPositionLabelY, 1, 1, 1, 1);
+
+        cameraPositionLabelZ = new QLabel(cameraPosition);
+        cameraPositionLabelZ->setObjectName(QString::fromUtf8("cameraPositionLabelZ"));
+        cameraPositionLabelZ->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(cameraPositionLabelZ, 1, 2, 1, 1);
 
 
         verticalLayout_10->addWidget(cameraPosition);
@@ -1567,7 +1355,7 @@ public:
         MainWindow->addDockWidget(Qt::LeftDockWidgetArea, camtransDock);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 600, 25));
+        menuBar->setGeometry(QRect(0, 0, 600, 22));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         menuToolbars = new QMenu(menuBar);
@@ -1598,8 +1386,6 @@ public:
         QObject::connect(raySuperSamping, SIGNAL(toggled(bool)), raySuperSamplesTextbox, SLOT(setEnabled(bool)));
         QObject::connect(rayAllButton, SIGNAL(clicked()), MainWindow, SLOT(checkAllRayFeatures()));
         QObject::connect(rayNoneButton, SIGNAL(clicked()), MainWindow, SLOT(uncheckAllRayFeatures()));
-        QObject::connect(cameraOrbitCheckbox, SIGNAL(toggled(bool)), cameraRotation, SLOT(setDisabled(bool)));
-        QObject::connect(cameraOrbitCheckbox, SIGNAL(toggled(bool)), cameraPosition, SLOT(setDisabled(bool)));
         QObject::connect(xAxisButton, SIGNAL(clicked()), MainWindow, SLOT(setCameraAxisX()));
         QObject::connect(yAxisButton, SIGNAL(clicked()), MainWindow, SLOT(setCameraAxisY()));
         QObject::connect(axonometricButton, SIGNAL(clicked()), MainWindow, SLOT(setCameraAxonometric()));
@@ -1624,8 +1410,6 @@ public:
         QObject::connect(filterTypeRotate, SIGNAL(toggled(bool)), rotateSlider, SLOT(setEnabled(bool)));
         QObject::connect(filterTypeRotate, SIGNAL(toggled(bool)), rotateAngleEdit, SLOT(setEnabled(bool)));
         QObject::connect(resetUpVector, SIGNAL(clicked()), MainWindow, SLOT(resetUpVector()));
-        QObject::connect(cameraOrbitCheckbox, SIGNAL(toggled(bool)), cameraResetAxis, SLOT(setDisabled(bool)));
-        QObject::connect(showSceneviewInstead, SIGNAL(toggled(bool)), shapeType, SLOT(setDisabled(bool)));
         QObject::connect(rayStopRenderingButton, SIGNAL(clicked()), canvas2D, SLOT(cancelRender()));
         QObject::connect(filterButton, SIGNAL(clicked()), MainWindow, SLOT(filterImage()));
         QObject::connect(actionCopy3Dto2D, SIGNAL(triggered()), MainWindow, SLOT(fileCopy3Dto2D()));
@@ -1635,17 +1419,16 @@ public:
         QObject::connect(filterTypeScale, SIGNAL(toggled(bool)), scaleLabelY, SLOT(setEnabled(bool)));
         QObject::connect(actionRevert, SIGNAL(triggered()), MainWindow, SLOT(revertImage()));
         QObject::connect(resetSliders, SIGNAL(clicked()), MainWindow, SLOT(resetSliders()));
+        QObject::connect(cameraOrbitCheckbox, SIGNAL(toggled(bool)), cameraPosition, SLOT(setDisabled(bool)));
+        QObject::connect(cameraOrbitCheckbox, SIGNAL(toggled(bool)), cameraRotation, SLOT(setDisabled(bool)));
+        QObject::connect(cameraOrbitCheckbox, SIGNAL(toggled(bool)), cameraResetAxis, SLOT(setDisabled(bool)));
         QObject::connect(actionUseOrbitingCamera, SIGNAL(toggled(bool)), cameraOrbitCheckbox, SLOT(setChecked(bool)));
         QObject::connect(cameraOrbitCheckbox, SIGNAL(toggled(bool)), actionUseOrbitingCamera, SLOT(setChecked(bool)));
+        QObject::connect(superman, SIGNAL(clicked(bool)), MainWindow, SLOT(restartMainWindow()));
+        QObject::connect(batman, SIGNAL(clicked(bool)), MainWindow, SLOT(batmanMainWindow()));
+        QObject::connect(play, SIGNAL(clicked(bool)), MainWindow, SLOT(playPauseMainWindow()));
 
 
-        //cloth
-        QObject::connect(restart, SIGNAL(clicked()), MainWindow, SLOT(restartClothMainWindow()));
-        QObject::connect(reset, SIGNAL(clicked()), MainWindow, SLOT(resetClothMainWindow()));
-
-
-
-        //cloth ends
         tabWidget->setCurrentIndex(1);
 
 
@@ -1654,7 +1437,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "CS 123: Introduction to Computer Graphics", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Wind Simulation", nullptr));
         actionNew->setText(QCoreApplication::translate("MainWindow", "&New", nullptr));
 #if QT_CONFIG(shortcut)
         actionNew->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+N", nullptr));
@@ -1707,36 +1490,11 @@ public:
         brushAlphaBlendingCheckbox->setText(QCoreApplication::translate("MainWindow", "No alpha blending", nullptr));
         shapesDock->setWindowTitle(QCoreApplication::translate("MainWindow", "Shapes/Scene&view", nullptr));
         showSceneviewInstead->setText(QCoreApplication::translate("MainWindow", "Show sceneview instead", nullptr));
-        shapeType->setTitle(QCoreApplication::translate("MainWindow", "Shape Type", nullptr));
-        shapeTypeCube->setText(QCoreApplication::translate("MainWindow", "Cube", nullptr));
-        shapeTypeCone->setText(QCoreApplication::translate("MainWindow", "Cone", nullptr));
-        shapeTypeSphere->setText(QCoreApplication::translate("MainWindow", "Sphere", nullptr));
-        shapeTypeCylinder->setText(QCoreApplication::translate("MainWindow", "Cylinder", nullptr));
-        shapeTypeTorus->setText(QCoreApplication::translate("MainWindow", "Torus", nullptr));
-        shapeTypeSpecial1->setText(QCoreApplication::translate("MainWindow", "Special 1", nullptr));
-        shapeTypeSpecial2->setText(QCoreApplication::translate("MainWindow", "Special 2", nullptr));
         shapeParameters->setTitle(QCoreApplication::translate("MainWindow", "Shape Parameters", nullptr));
-        shapeParameterLabel1->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
-        shapeParameterLabel2->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
-        shapeParameterLabel3->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
-
-        //cloth
-         dimensionLabel ->setText(QCoreApplication::translate("MainWindow","dimension",nullptr));
-         particleMassLabel ->setText(QCoreApplication::translate("MainWindow","particleMass",nullptr));
-         structuralStiffnessLabel ->setText(QCoreApplication::translate("MainWindow","structuralStiffness",nullptr));
-         shearStiffnessLabel ->setText(QCoreApplication::translate("MainWindow","shearStiffness",nullptr));
-         bendStiffnessLabel ->setText(QCoreApplication::translate("MainWindow","bendStiffness",nullptr));
-         dampingLabel ->setText(QCoreApplication::translate("MainWindow","damping",nullptr));
-         viscousLabel ->setText(QCoreApplication::translate("MainWindow","viscous",nullptr));
-         windVelocityLabel ->setText(QCoreApplication::translate("MainWindow","windVelocity",nullptr));
-         windAngleLabel ->setText(QCoreApplication::translate("MainWindow","windAngle",nullptr));
-         restart->setText(QCoreApplication::translate("MainWindow", "restart", nullptr));
-         reset->setText(QCoreApplication::translate("MainWindow", "reset", nullptr));
-
-
-
-
-         //cloth ends
+        shapeParameterLabel1->setText(QCoreApplication::translate("MainWindow", "tessellation", nullptr));
+        shapeParameterLabel2->setText(QCoreApplication::translate("MainWindow", "specularity", nullptr));
+        shapeParameterLabel3->setText(QCoreApplication::translate("MainWindow", "wind velocity", nullptr));
+        shapeParameterLabel4->setText(QCoreApplication::translate("MainWindow", "wind angle", nullptr));
 
         useLightingCheckbox->setText(QCoreApplication::translate("MainWindow", "Use lighting", nullptr));
         drawWireframeCheckbox->setText(QCoreApplication::translate("MainWindow", "Draw wireframe", nullptr));
@@ -1800,6 +1558,11 @@ public:
         label->setText(QCoreApplication::translate("MainWindow", "Resize the window to change the aspect ratio.", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "&File", nullptr));
         menuToolbars->setTitle(QCoreApplication::translate("MainWindow", "&Toolbars", nullptr));
+
+        superman->setText(QCoreApplication::translate("MainWindow", "Superman", nullptr));
+        batman->setText(QCoreApplication::translate("MainWindow", "Batman", nullptr));
+        play->setText(QCoreApplication::translate("MainWindow", "Play/Pause", nullptr));
+
     } // retranslateUi
 
 };
